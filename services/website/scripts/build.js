@@ -24,7 +24,7 @@ async function build() {
   // 2. Generate search indices
   console.log('🔍 Generating search indices...');
   await new Promise((resolve, reject) => {
-    const indexGen = spawn('node', ['scripts/generate-search-index.js'], {
+    const indexGen = spawn('node', ['scripts/generate-unified-search-index.js'], {
       cwd: rootDir,
       stdio: 'inherit',
     });

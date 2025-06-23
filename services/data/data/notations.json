@@ -1,0 +1,217 @@
+[
+  {
+    "id": "Mfow8hZeiGFQS9mRE4clQ",
+    "name": "Type Judgment",
+    "description": "A formal statement asserting that a term has a certain type in a given context",
+    "tags": [
+      "type theory",
+      "PLT"
+    ],
+    "aliases": [
+      "typing relation",
+      "type assignment"
+    ],
+    "typstString": "$Gamma tack e : tau$",
+    "typstCanonical": "Gamma tack e : tau",
+    "latexString": "\\Gamma \\vdash e : \\tau",
+    "papers": [
+      {
+        "paperId": "v5OVA5CVZIRAAC8djdOCb",
+        "context": "Introduced in Chapter 3",
+        "pageNumber": "32",
+        "isPrimaryDefinition": true
+      }
+    ],
+    "createdAt": 1750702122945,
+    "updatedAt": 1750702122945
+  },
+  {
+    "id": "vm-3LfehMRVIXii4w-h6h",
+    "name": "Lambda Abstraction",
+    "description": "A function definition in lambda calculus",
+    "tags": [
+      "lambda calculus",
+      "PLT"
+    ],
+    "aliases": [
+      "function literal",
+      "anonymous function"
+    ],
+    "typstString": "$lambda x. e$",
+    "typstCanonical": "lambda x. e",
+    "latexString": "\\lambda x. e",
+    "papers": [
+      {
+        "paperId": "v5OVA5CVZIRAAC8djdOCb",
+        "context": "Used throughout the book",
+        "pageNumber": "15",
+        "isPrimaryDefinition": false
+      }
+    ],
+    "createdAt": 1750702122945,
+    "updatedAt": 1750702122945
+  },
+  {
+    "id": "eDzhkQ3eTXVy6_WQyI8Y2",
+    "name": "Set Union",
+    "description": "The union of two sets A and B is the set of elements which are in A, in B, or in both",
+    "tags": [
+      "set theory",
+      "operations"
+    ],
+    "aliases": [
+      "union",
+      "join"
+    ],
+    "typstString": "$A union B$",
+    "typstCanonical": "A union B",
+    "latexString": "A \\cup B",
+    "unicodeString": "A ∪ B",
+    "papers": [
+      {
+        "paperId": "jT4KWSsP5DziqJzEZh5C3",
+        "context": "Basic set operations",
+        "pageNumber": "45",
+        "isPrimaryDefinition": true
+      }
+    ],
+    "createdAt": 1750702122945,
+    "updatedAt": 1750702122945
+  },
+  {
+    "id": "KFF9FPSA3Y2-FjBkctUsf",
+    "name": "Set Intersection",
+    "description": "The intersection of two sets A and B is the set of elements which are in both A and B",
+    "tags": [
+      "set theory",
+      "operations"
+    ],
+    "aliases": [
+      "intersection",
+      "meet"
+    ],
+    "typstString": "$A sect B$",
+    "typstCanonical": "A sect B",
+    "latexString": "A \\cap B",
+    "unicodeString": "A ∩ B",
+    "papers": [
+      {
+        "paperId": "jT4KWSsP5DziqJzEZh5C3",
+        "context": "Basic set operations",
+        "pageNumber": "46",
+        "isPrimaryDefinition": true
+      }
+    ],
+    "createdAt": 1750702122945,
+    "updatedAt": 1750702122945
+  },
+  {
+    "id": "ME0L1W32YObGwSZoGU7BO",
+    "name": "Element Membership",
+    "description": "A relation between an element and a set, indicating that the element belongs to the set",
+    "tags": [
+      "set theory",
+      "relations"
+    ],
+    "aliases": [
+      "belongs to",
+      "is in",
+      "membership"
+    ],
+    "typstString": "$x in A$",
+    "typstCanonical": "x in A",
+    "latexString": "x \\in A",
+    "unicodeString": "x ∈ A",
+    "papers": [
+      {
+        "paperId": "jT4KWSsP5DziqJzEZh5C3",
+        "context": "Fundamental set relation",
+        "pageNumber": "12",
+        "isPrimaryDefinition": true
+      }
+    ],
+    "createdAt": 1750702122945,
+    "updatedAt": 1750702122945
+  },
+  {
+    "id": "55xvhgQClMP7QCPN15ea5",
+    "name": "Summation",
+    "description": "The sum of a sequence of numbers",
+    "tags": [
+      "arithmetic",
+      "analysis"
+    ],
+    "aliases": [
+      "sum",
+      "sigma notation"
+    ],
+    "typstString": "$sum_(i=1)^n a_i$",
+    "typstCanonical": "sum_(i=1)^n a_i",
+    "latexString": "\\sum_{i=1}^{n} a_i",
+    "unicodeString": "∑ᵢ₌₁ⁿ aᵢ",
+    "papers": [
+      {
+        "paperId": "jT4KWSsP5DziqJzEZh5C3",
+        "context": "Mathematical notation appendix",
+        "pageNumber": "302",
+        "isPrimaryDefinition": false
+      }
+    ],
+    "createdAt": 1750702122945,
+    "updatedAt": 1750702122945
+  },
+  {
+    "id": "KdWvbBQtAxnDa0mE1Mfs9",
+    "name": "Universal Quantification",
+    "description": "A logical statement asserting that a property holds for all elements in a domain",
+    "tags": [
+      "logic",
+      "quantifiers"
+    ],
+    "aliases": [
+      "for all",
+      "universal quantifier"
+    ],
+    "typstString": "$forall x. P(x)$",
+    "typstCanonical": "forall x. P(x)",
+    "latexString": "\\forall x. P(x)",
+    "unicodeString": "∀x. P(x)",
+    "papers": [
+      {
+        "paperId": "jT4KWSsP5DziqJzEZh5C3",
+        "context": "First-order logic introduction",
+        "pageNumber": "120",
+        "isPrimaryDefinition": true
+      }
+    ],
+    "createdAt": 1750702122945,
+    "updatedAt": 1750702122945
+  },
+  {
+    "id": "6RMf2iFsGtHMz38TfD0PD",
+    "name": "Existential Quantification",
+    "description": "A logical statement asserting that there exists at least one element satisfying a property",
+    "tags": [
+      "logic",
+      "quantifiers"
+    ],
+    "aliases": [
+      "there exists",
+      "existential quantifier"
+    ],
+    "typstString": "$exists x. P(x)$",
+    "typstCanonical": "exists x. P(x)",
+    "latexString": "\\exists x. P(x)",
+    "unicodeString": "∃x. P(x)",
+    "papers": [
+      {
+        "paperId": "jT4KWSsP5DziqJzEZh5C3",
+        "context": "First-order logic introduction",
+        "pageNumber": "121",
+        "isPrimaryDefinition": true
+      }
+    ],
+    "createdAt": 1750702122945,
+    "updatedAt": 1750702122945
+  }
+]

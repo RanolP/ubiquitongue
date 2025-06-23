@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { data } from '../../lib/data';
+import { data, getNotationsByPaperId } from '../../lib/data-unified';
 import { url } from '../../lib/url';
 
 const papers = data.papers;
@@ -12,18 +12,26 @@ const papers = data.papers;
     <p class="mt-2 text-gray-600">Academic papers in our database</p>
     
     <div class="mt-8 grid gap-4">
-      {papers.map((paper: any) => (
-        <div class="bg-white shadow rounded-lg p-6">
-          <h2 class="text-xl font-semibold">
-            <a href={url(`/papers/${paper.id}`)} class="text-primary hover:text-primary/80">
-              {paper.title}
-            </a>
-          </h2>
-          <p class="mt-1 text-gray-600">
-            {paper.authors.join(', ')} • {paper.year}
-          </p>
-        </div>
-      ))}
+      {papers.map((paper) => {
+        const notations = getNotationsByPaperId(paper.id);
+        return (
+          <div class="bg-white shadow rounded-lg p-6">
+            <h2 class="text-xl font-semibold">
+              <a href={url(`/papers/${paper.id}`)} class="text-primary hover:text-primary/80">
+                {paper.title}
+              </a>
+            </h2>
+            <p class="mt-1 text-gray-600">
+              {paper.authors.join(', ')} • {paper.year}
+            </p>
+            {notations.length > 0 && (
+              <p class="mt-2 text-sm text-gray-500">
+                Contains {notations.length} notation{notations.length !== 1 ? 's' : ''}
+              </p>
+            )}
+          </div>
+        );
+      })}
     </div>
   </div>
 </Layout>

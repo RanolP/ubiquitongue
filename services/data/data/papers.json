@@ -1,60 +1,31 @@
 [
   {
+    "id": "v5OVA5CVZIRAAC8djdOCb",
     "title": "Types and Programming Languages",
     "authors": [
       "Benjamin C. Pierce"
     ],
     "year": 2002,
-    "bibtex": "@book{pierce2002types, title={Types and Programming Languages}, author={Pierce, Benjamin C.}, year={2002}, publisher={MIT Press}}",
-    "id": "fn8PKJz8LXGCrS_ajrq9W",
-    "createdAt": 1750693069816,
-    "updatedAt": 1750693069816
+    "bibtex": "@book{pierce2002types, title={Types and Programming Languages}, author={Pierce, Benjamin C.}, year={2002}, publisher={MIT Press}}"
   },
   {
+    "id": "EUJPilTd2B7str3rFJ6h5",
     "title": "A Theory of Objects",
     "authors": [
       "Martín Abadi",
       "Luca Cardelli"
     ],
     "year": 1996,
-    "bibtex": "@book{abadi1996theory, title={A Theory of Objects}, author={Abadi, Martín and Cardelli, Luca}, year={1996}, publisher={Springer}}",
-    "id": "skuDmjVFLycN2LOJIum2h",
-    "createdAt": 1750693069816,
-    "updatedAt": 1750693069816
+    "bibtex": "@book{abadi1996theory, title={A Theory of Objects}, author={Abadi, Martín and Cardelli, Luca}, year={1996}, publisher={Springer}}"
   },
   {
-    "title": "Types and Programming Languages",
-    "authors": [
-      "Benjamin C. Pierce"
-    ],
-    "year": 2002,
-    "bibtex": "@book{pierce2002types, title={Types and Programming Languages}, author={Pierce, Benjamin C.}, year={2002}, publisher={MIT Press}}",
-    "id": "MKE3OY_oHGwY6uivBvlb8",
-    "createdAt": 1750701810461,
-    "updatedAt": 1750701810461
-  },
-  {
-    "title": "A Theory of Objects",
-    "authors": [
-      "Martín Abadi",
-      "Luca Cardelli"
-    ],
-    "year": 1996,
-    "bibtex": "@book{abadi1996theory, title={A Theory of Objects}, author={Abadi, Martín and Cardelli, Luca}, year={1996}, publisher={Springer}}",
-    "id": "hna6wUYdbXLgn4_Sg0QKD",
-    "createdAt": 1750701810461,
-    "updatedAt": 1750701810461
-  },
-  {
+    "id": "jT4KWSsP5DziqJzEZh5C3",
     "title": "Introduction to Set Theory",
     "authors": [
       "Karel Hrbacek",
       "Thomas Jech"
     ],
     "year": 1999,
-    "bibtex": "@book{hrbacek1999introduction, title={Introduction to Set Theory}, author={Hrbacek, Karel and Jech, Thomas}, year={1999}, publisher={Marcel Dekker}}",
-    "id": "H11nmQdJ9RSPZIApAOnBq",
-    "createdAt": 1750701810463,
-    "updatedAt": 1750701810463
+    "bibtex": "@book{hrbacek1999introduction, title={Introduction to Set Theory}, author={Hrbacek, Karel and Jech, Thomas}, year={1999}, publisher={Marcel Dekker}}"
   }
 ]

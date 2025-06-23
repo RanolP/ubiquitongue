@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { SmartSearch } from '../components/solid/SmartSearch';
+import { UnifiedSearch } from '../components/solid/UnifiedSearch';
 import { url } from '../lib/url';
 ---
 
@@ -16,34 +16,20 @@ import { url } from '../lib/url';
     </div>
 
     <div class="mt-12">
-      <SmartSearch client:load />
+      <UnifiedSearch client:load />
     </div>
 
     <div class="mt-16">
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
         <div class="bg-white overflow-hidden shadow rounded-lg">
           <div class="px-4 py-5 sm:p-6">
-            <h3 class="text-lg font-medium text-gray-900">Semantics</h3>
+            <h3 class="text-lg font-medium text-gray-900">Notations</h3>
             <p class="mt-1 text-sm text-gray-500">
-              Mathematical and CS concepts with their meanings
+              Mathematical and CS notations with their meanings and syntax
             </p>
             <div class="mt-3">
-              <a href={url('/semantics')} class="text-primary hover:text-primary/80">
-                Browse semantics →
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white overflow-hidden shadow rounded-lg">
-          <div class="px-4 py-5 sm:p-6">
-            <h3 class="text-lg font-medium text-gray-900">Syntaxes</h3>
-            <p class="mt-1 text-sm text-gray-500">
-              Notations and symbols used in academic literature
-            </p>
-            <div class="mt-3">
-              <a href={url('/syntaxes')} class="text-primary hover:text-primary/80">
-                Browse syntaxes →
+              <a href={url('/notations')} class="text-primary hover:text-primary/80">
+                Browse notations →
               </a>
             </div>
           </div>
