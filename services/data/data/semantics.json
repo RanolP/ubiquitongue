@@ -28,5 +28,96 @@
     "id": "RVdMnoYuqjnQpqo6CizxZ",
     "createdAt": 1750693069817,
     "updatedAt": 1750693069817
+  },
+  {
+    "name": "Type Judgment",
+    "description": "A formal statement asserting that a term has a certain type in a given context",
+    "tags": [
+      "type theory",
+      "PLT"
+    ],
+    "aliases": [
+      "typing relation",
+      "type assignment"
+    ],
+    "id": "CH6ismSLBna2kAHwxJ6QH",
+    "createdAt": 1750701810462,
+    "updatedAt": 1750701810462
+  },
+  {
+    "name": "Lambda Abstraction",
+    "description": "A function definition in lambda calculus",
+    "tags": [
+      "lambda calculus",
+      "PLT"
+    ],
+    "aliases": [
+      "function literal",
+      "anonymous function"
+    ],
+    "id": "wo1Dljpohl1rhAfSyS7Cb",
+    "createdAt": 1750701810462,
+    "updatedAt": 1750701810462
+  },
+  {
+    "name": "Set Union",
+    "description": "The union of two sets A and B is the set of elements which are in A, in B, or in both",
+    "tags": [
+      "set theory",
+      "operations"
+    ],
+    "aliases": [
+      "union",
+      "join"
+    ],
+    "id": "EYVPVoudAPPOfPXxNdIcT",
+    "createdAt": 1750701810463,
+    "updatedAt": 1750701810463
+  },
+  {
+    "name": "Set Intersection",
+    "description": "The intersection of two sets A and B is the set of elements which are in both A and B",
+    "tags": [
+      "set theory",
+      "operations"
+    ],
+    "aliases": [
+      "intersection",
+      "meet"
+    ],
+    "id": "Zd6aQZbGv47eHtoEksT8A",
+    "createdAt": 1750701810463,
+    "updatedAt": 1750701810463
+  },
+  {
+    "name": "Element Membership",
+    "description": "A relation between an element and a set, indicating that the element belongs to the set",
+    "tags": [
+      "set theory",
+      "relations"
+    ],
+    "aliases": [
+      "belongs to",
+      "is in",
+      "membership"
+    ],
+    "id": "epB6oS8scxIXuxzklPtdg",
+    "createdAt": 1750701810463,
+    "updatedAt": 1750701810463
+  },
+  {
+    "name": "Summation",
+    "description": "The sum of a sequence of numbers",
+    "tags": [
+      "arithmetic",
+      "analysis"
+    ],
+    "aliases": [
+      "sum",
+      "sigma notation"
+    ],
+    "id": "ih53juhAf1L0UzHuIA_Uk",
+    "createdAt": 1750701810464,
+    "updatedAt": 1750701810464
   }
 ]

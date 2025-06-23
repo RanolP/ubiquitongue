@@ -20,5 +20,71 @@
     "id": "OOmR349ZIotF2Nud47wF7",
     "createdAt": 1750693069817,
     "updatedAt": 1750693069817
+  },
+  {
+    "semanticId": "CH6ismSLBna2kAHwxJ6QH",
+    "syntaxId": "Lf5ZbojPGggSDyvDY5EpY",
+    "paperId": "MKE3OY_oHGwY6uivBvlb8",
+    "context": "Introduced in Chapter 3",
+    "pageNumber": "32",
+    "isPrimaryDefinition": true,
+    "id": "jigEk571SpQ4_nJBLEuSP",
+    "createdAt": 1750701810462,
+    "updatedAt": 1750701810462
+  },
+  {
+    "semanticId": "wo1Dljpohl1rhAfSyS7Cb",
+    "syntaxId": "coK6kipQAREPQSg4drESb",
+    "paperId": "MKE3OY_oHGwY6uivBvlb8",
+    "context": "Used throughout the book",
+    "pageNumber": "15",
+    "isPrimaryDefinition": false,
+    "id": "YcQzXtwnY12wWRSAr3Hrd",
+    "createdAt": 1750701810463,
+    "updatedAt": 1750701810463
+  },
+  {
+    "semanticId": "EYVPVoudAPPOfPXxNdIcT",
+    "syntaxId": "0aOePXtBATp6kv4tRbzcG",
+    "paperId": "H11nmQdJ9RSPZIApAOnBq",
+    "context": "Basic set operations",
+    "pageNumber": "45",
+    "isPrimaryDefinition": true,
+    "id": "Mehs0U_oZ3cj3bddi3Xp2",
+    "createdAt": 1750701810463,
+    "updatedAt": 1750701810463
+  },
+  {
+    "semanticId": "Zd6aQZbGv47eHtoEksT8A",
+    "syntaxId": "QIf72JaT2QvH6BtkYB3dO",
+    "paperId": "H11nmQdJ9RSPZIApAOnBq",
+    "context": "Basic set operations",
+    "pageNumber": "46",
+    "isPrimaryDefinition": true,
+    "id": "FcILJ9uUYg-Z08SLVa0Nt",
+    "createdAt": 1750701810463,
+    "updatedAt": 1750701810463
+  },
+  {
+    "semanticId": "epB6oS8scxIXuxzklPtdg",
+    "syntaxId": "ygHs8-iBwMMFIjNN4PSgV",
+    "paperId": "H11nmQdJ9RSPZIApAOnBq",
+    "context": "Fundamental set relation",
+    "pageNumber": "12",
+    "isPrimaryDefinition": true,
+    "id": "tXgDMqFB_wZqIC0C4SqFt",
+    "createdAt": 1750701810464,
+    "updatedAt": 1750701810464
+  },
+  {
+    "semanticId": "ih53juhAf1L0UzHuIA_Uk",
+    "syntaxId": "LD9Munpsduzihl9wb-0P0",
+    "paperId": "H11nmQdJ9RSPZIApAOnBq",
+    "context": "Mathematical notation appendix",
+    "pageNumber": "302",
+    "isPrimaryDefinition": false,
+    "id": "L8OMqbS62iCouNL7Z_DGA",
+    "createdAt": 1750701810464,
+    "updatedAt": 1750701810464
   }
 ]

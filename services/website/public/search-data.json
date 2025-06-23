@@ -27,6 +27,91 @@
         "anonymous function"
       ],
       "searchText": "lambda abstraction a function definition in lambda calculus lambda calculus plt function literal anonymous function"
+    },
+    {
+      "id": "CH6ismSLBna2kAHwxJ6QH",
+      "name": "Type Judgment",
+      "description": "A formal statement asserting that a term has a certain type in a given context",
+      "tags": [
+        "type theory",
+        "PLT"
+      ],
+      "aliases": [
+        "typing relation",
+        "type assignment"
+      ],
+      "searchText": "type judgment a formal statement asserting that a term has a certain type in a given context type theory plt typing relation type assignment"
+    },
+    {
+      "id": "wo1Dljpohl1rhAfSyS7Cb",
+      "name": "Lambda Abstraction",
+      "description": "A function definition in lambda calculus",
+      "tags": [
+        "lambda calculus",
+        "PLT"
+      ],
+      "aliases": [
+        "function literal",
+        "anonymous function"
+      ],
+      "searchText": "lambda abstraction a function definition in lambda calculus lambda calculus plt function literal anonymous function"
+    },
+    {
+      "id": "EYVPVoudAPPOfPXxNdIcT",
+      "name": "Set Union",
+      "description": "The union of two sets A and B is the set of elements which are in A, in B, or in both",
+      "tags": [
+        "set theory",
+        "operations"
+      ],
+      "aliases": [
+        "union",
+        "join"
+      ],
+      "searchText": "set union the union of two sets a and b is the set of elements which are in a, in b, or in both set theory operations union join"
+    },
+    {
+      "id": "Zd6aQZbGv47eHtoEksT8A",
+      "name": "Set Intersection",
+      "description": "The intersection of two sets A and B is the set of elements which are in both A and B",
+      "tags": [
+        "set theory",
+        "operations"
+      ],
+      "aliases": [
+        "intersection",
+        "meet"
+      ],
+      "searchText": "set intersection the intersection of two sets a and b is the set of elements which are in both a and b set theory operations intersection meet"
+    },
+    {
+      "id": "epB6oS8scxIXuxzklPtdg",
+      "name": "Element Membership",
+      "description": "A relation between an element and a set, indicating that the element belongs to the set",
+      "tags": [
+        "set theory",
+        "relations"
+      ],
+      "aliases": [
+        "belongs to",
+        "is in",
+        "membership"
+      ],
+      "searchText": "element membership a relation between an element and a set, indicating that the element belongs to the set set theory relations belongs to is in membership"
+    },
+    {
+      "id": "ih53juhAf1L0UzHuIA_Uk",
+      "name": "Summation",
+      "description": "The sum of a sequence of numbers",
+      "tags": [
+        "arithmetic",
+        "analysis"
+      ],
+      "aliases": [
+        "sum",
+        "sigma notation"
+      ],
+      "searchText": "summation the sum of a sequence of numbers arithmetic analysis sum sigma notation"
     }
   ],
   "syntaxes": [
@@ -45,6 +130,54 @@
       "description": "Lambda abstraction notation",
       "latexString": "\\lambda x. e",
       "searchText": "$lambda x. e$ lambda x. e lambda abstraction notation \\lambda x. e"
+    },
+    {
+      "id": "Lf5ZbojPGggSDyvDY5EpY",
+      "typstString": "$Gamma tack e : tau$",
+      "typstCanonical": "Gamma tack e : tau",
+      "description": "Standard notation for type judgments",
+      "latexString": "\\Gamma \\vdash e : \\tau",
+      "searchText": "$gamma tack e : tau$ gamma tack e : tau standard notation for type judgments \\gamma \\vdash e : \\tau"
+    },
+    {
+      "id": "coK6kipQAREPQSg4drESb",
+      "typstString": "$lambda x. e$",
+      "typstCanonical": "lambda x. e",
+      "description": "Lambda abstraction notation",
+      "latexString": "\\lambda x. e",
+      "searchText": "$lambda x. e$ lambda x. e lambda abstraction notation \\lambda x. e"
+    },
+    {
+      "id": "0aOePXtBATp6kv4tRbzcG",
+      "typstString": "$A union B$",
+      "typstCanonical": "A union B",
+      "description": "Set union operation",
+      "latexString": "A \\cup B",
+      "searchText": "$a union b$ a union b set union operation a \\cup b"
+    },
+    {
+      "id": "QIf72JaT2QvH6BtkYB3dO",
+      "typstString": "$A sect B$",
+      "typstCanonical": "A sect B",
+      "description": "Set intersection operation",
+      "latexString": "A \\cap B",
+      "searchText": "$a sect b$ a sect b set intersection operation a \\cap b"
+    },
+    {
+      "id": "ygHs8-iBwMMFIjNN4PSgV",
+      "typstString": "$x in A$",
+      "typstCanonical": "x in A",
+      "description": "Element membership in a set",
+      "latexString": "x \\in A",
+      "searchText": "$x in a$ x in a element membership in a set x \\in a"
+    },
+    {
+      "id": "LD9Munpsduzihl9wb-0P0",
+      "typstString": "$sum_(i=1)^n a_i$",
+      "typstCanonical": "sum_(i=1)^n a_i",
+      "description": "Summation from i=1 to n",
+      "latexString": "\\sum_{i=1}^{n} a_i",
+      "searchText": "$sum_(i=1)^n a_i$ sum_(i=1)^n a_i summation from i=1 to n \\sum_{i=1}^{n} a_i"
     }
   ],
   "papers": [
@@ -68,6 +201,38 @@
       "year": 1996,
       "abstract": "",
       "searchText": "a theory of objects martín abadi luca cardelli "
+    },
+    {
+      "id": "MKE3OY_oHGwY6uivBvlb8",
+      "title": "Types and Programming Languages",
+      "authors": [
+        "Benjamin C. Pierce"
+      ],
+      "year": 2002,
+      "abstract": "",
+      "searchText": "types and programming languages benjamin c. pierce "
+    },
+    {
+      "id": "hna6wUYdbXLgn4_Sg0QKD",
+      "title": "A Theory of Objects",
+      "authors": [
+        "Martín Abadi",
+        "Luca Cardelli"
+      ],
+      "year": 1996,
+      "abstract": "",
+      "searchText": "a theory of objects martín abadi luca cardelli "
+    },
+    {
+      "id": "H11nmQdJ9RSPZIApAOnBq",
+      "title": "Introduction to Set Theory",
+      "authors": [
+        "Karel Hrbacek",
+        "Thomas Jech"
+      ],
+      "year": 1999,
+      "abstract": "",
+      "searchText": "introduction to set theory karel hrbacek thomas jech "
     }
   ]
 }

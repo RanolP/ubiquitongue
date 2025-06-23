@@ -16,5 +16,59 @@
     "id": "oHFSbPD8kIX-W48gYw5G3",
     "createdAt": 1750693069817,
     "updatedAt": 1750693069817
+  },
+  {
+    "typstString": "$Gamma tack e : tau$",
+    "latexString": "\\Gamma \\vdash e : \\tau",
+    "typstCanonical": "Gamma tack e : tau",
+    "description": "Standard notation for type judgments",
+    "id": "Lf5ZbojPGggSDyvDY5EpY",
+    "createdAt": 1750701810462,
+    "updatedAt": 1750701810462
+  },
+  {
+    "typstString": "$lambda x. e$",
+    "latexString": "\\lambda x. e",
+    "typstCanonical": "lambda x. e",
+    "description": "Lambda abstraction notation",
+    "id": "coK6kipQAREPQSg4drESb",
+    "createdAt": 1750701810462,
+    "updatedAt": 1750701810462
+  },
+  {
+    "typstString": "$A union B$",
+    "latexString": "A \\cup B",
+    "typstCanonical": "A union B",
+    "description": "Set union operation",
+    "id": "0aOePXtBATp6kv4tRbzcG",
+    "createdAt": 1750701810463,
+    "updatedAt": 1750701810463
+  },
+  {
+    "typstString": "$A sect B$",
+    "latexString": "A \\cap B",
+    "typstCanonical": "A sect B",
+    "description": "Set intersection operation",
+    "id": "QIf72JaT2QvH6BtkYB3dO",
+    "createdAt": 1750701810463,
+    "updatedAt": 1750701810463
+  },
+  {
+    "typstString": "$x in A$",
+    "latexString": "x \\in A",
+    "typstCanonical": "x in A",
+    "description": "Element membership in a set",
+    "id": "ygHs8-iBwMMFIjNN4PSgV",
+    "createdAt": 1750701810463,
+    "updatedAt": 1750701810463
+  },
+  {
+    "typstString": "$sum_(i=1)^n a_i$",
+    "latexString": "\\sum_{i=1}^{n} a_i",
+    "typstCanonical": "sum_(i=1)^n a_i",
+    "description": "Summation from i=1 to n",
+    "id": "LD9Munpsduzihl9wb-0P0",
+    "createdAt": 1750701810464,
+    "updatedAt": 1750701810464
   }
 ]
