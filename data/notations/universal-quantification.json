@@ -1,0 +1,29 @@
+{
+  "id": "universal-quantification",
+  "name": "Universal Quantification",
+  "description": "A logical statement asserting that a property holds for all elements in a domain",
+  "tags": [
+    "logic",
+    "quantifiers",
+    "first-order logic"
+  ],
+  "aliases": [
+    "for all",
+    "universal quantifier",
+    "generalization"
+  ],
+  "typstString": "$forall x. P(x)$",
+  "typstCanonical": "forall x. P(x)",
+  "latexString": "\\forall x. P(x)",
+  "unicodeString": "∀x. P(x)",
+  "papers": [
+    {
+      "paperId": "hrbacek-1999-set-theory",
+      "context": "First-order logic introduction",
+      "pageNumber": "120",
+      "isPrimaryDefinition": true
+    }
+  ],
+  "createdAt": "2025-06-23T18:19:01.067Z",
+  "updatedAt": "2025-06-23T18:19:01.067Z"
+}

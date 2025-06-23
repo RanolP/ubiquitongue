@@ -1,0 +1,26 @@
+{
+  "id": "type-judgment",
+  "name": "Type Judgment",
+  "description": "A formal statement asserting that a term has a certain type in a given context",
+  "tags": [
+    "type theory",
+    "PLT"
+  ],
+  "aliases": [
+    "typing relation",
+    "type assignment"
+  ],
+  "typstString": "$Gamma tack.r e : tau$",
+  "typstCanonical": "Gamma tack.r e : tau",
+  "latexString": "\\Gamma \\vdash e : \\tau",
+  "papers": [
+    {
+      "paperId": "pierce-2002-types",
+      "context": "Introduced in Chapter 3 as the fundamental judgment of type systems",
+      "pageNumber": "32",
+      "isPrimaryDefinition": true
+    }
+  ],
+  "createdAt": "2025-06-23T18:19:01.067Z",
+  "updatedAt": "2025-06-23T18:19:01.067Z"
+}

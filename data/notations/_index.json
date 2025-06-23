@@ -1,0 +1,73 @@
+[
+  {
+    "id": "type-judgment",
+    "name": "Type Judgment",
+    "tags": [
+      "type theory",
+      "PLT"
+    ]
+  },
+  {
+    "id": "lambda-abstraction",
+    "name": "Lambda Abstraction",
+    "tags": [
+      "lambda calculus",
+      "PLT",
+      "functional programming"
+    ]
+  },
+  {
+    "id": "set-union",
+    "name": "Set Union",
+    "tags": [
+      "set theory",
+      "operations",
+      "binary operations"
+    ]
+  },
+  {
+    "id": "set-intersection",
+    "name": "Set Intersection",
+    "tags": [
+      "set theory",
+      "operations",
+      "binary operations"
+    ]
+  },
+  {
+    "id": "element-membership",
+    "name": "Element Membership",
+    "tags": [
+      "set theory",
+      "relations",
+      "membership"
+    ]
+  },
+  {
+    "id": "summation",
+    "name": "Summation",
+    "tags": [
+      "arithmetic",
+      "analysis",
+      "series"
+    ]
+  },
+  {
+    "id": "universal-quantification",
+    "name": "Universal Quantification",
+    "tags": [
+      "logic",
+      "quantifiers",
+      "first-order logic"
+    ]
+  },
+  {
+    "id": "existential-quantification",
+    "name": "Existential Quantification",
+    "tags": [
+      "logic",
+      "quantifiers",
+      "first-order logic"
+    ]
+  }
+]

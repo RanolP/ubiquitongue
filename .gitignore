@@ -54,3 +54,7 @@ local_master_data.duckdb.wal
 
 # Keep AI knowledge base
 !.ai/
+
+# Service-specific data (use root /data instead)
+services/data/data/
+services/website/data/

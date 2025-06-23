@@ -1,0 +1,34 @@
+{
+  "id": "lambda-abstraction",
+  "name": "Lambda Abstraction",
+  "description": "A function definition in lambda calculus",
+  "tags": [
+    "lambda calculus",
+    "PLT",
+    "functional programming"
+  ],
+  "aliases": [
+    "function literal",
+    "anonymous function",
+    "lambda expression"
+  ],
+  "typstString": "$lambda x. e$",
+  "typstCanonical": "lambda x. e",
+  "latexString": "\\lambda x. e",
+  "papers": [
+    {
+      "paperId": "pierce-2002-types",
+      "context": "Used throughout the book",
+      "pageNumber": "15",
+      "isPrimaryDefinition": false
+    },
+    {
+      "paperId": "abadi-1996-theory",
+      "context": "Extended with object-oriented features",
+      "pageNumber": "23",
+      "isPrimaryDefinition": false
+    }
+  ],
+  "createdAt": "2025-06-23T18:19:01.067Z",
+  "updatedAt": "2025-06-23T18:19:01.067Z"
+}

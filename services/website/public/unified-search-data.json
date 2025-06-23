@@ -1,7 +1,128 @@
 {
   "notations": [
     {
-      "id": "Mfow8hZeiGFQS9mRE4clQ",
+      "id": "element-membership",
+      "name": "Element Membership",
+      "description": "A relation between an element and a set, indicating that the element belongs to the set",
+      "tags": [
+        "set theory",
+        "relations",
+        "membership"
+      ],
+      "aliases": [
+        "belongs to",
+        "is in",
+        "membership",
+        "element of"
+      ],
+      "typstString": "$x in A$",
+      "typstCanonical": "x in A",
+      "latexString": "x \\in A",
+      "unicodeString": "x ∈ A",
+      "searchText": "element membership a relation between an element and a set, indicating that the element belongs to the set set theory relations membership belongs to is in membership element of $x in a$ x in a x \\in a x ∈ a"
+    },
+    {
+      "id": "existential-quantification",
+      "name": "Existential Quantification",
+      "description": "A logical statement asserting that there exists at least one element satisfying a property",
+      "tags": [
+        "logic",
+        "quantifiers",
+        "first-order logic"
+      ],
+      "aliases": [
+        "there exists",
+        "existential quantifier",
+        "existence"
+      ],
+      "typstString": "$exists x. P(x)$",
+      "typstCanonical": "exists x. P(x)",
+      "latexString": "\\exists x. P(x)",
+      "unicodeString": "∃x. P(x)",
+      "searchText": "existential quantification a logical statement asserting that there exists at least one element satisfying a property logic quantifiers first-order logic there exists existential quantifier existence $exists x. p(x)$ exists x. p(x) \\exists x. p(x) ∃x. p(x)"
+    },
+    {
+      "id": "lambda-abstraction",
+      "name": "Lambda Abstraction",
+      "description": "A function definition in lambda calculus",
+      "tags": [
+        "lambda calculus",
+        "PLT",
+        "functional programming"
+      ],
+      "aliases": [
+        "function literal",
+        "anonymous function",
+        "lambda expression"
+      ],
+      "typstString": "$lambda x. e$",
+      "typstCanonical": "lambda x. e",
+      "latexString": "\\lambda x. e",
+      "unicodeString": "",
+      "searchText": "lambda abstraction a function definition in lambda calculus lambda calculus plt functional programming function literal anonymous function lambda expression $lambda x. e$ lambda x. e \\lambda x. e "
+    },
+    {
+      "id": "set-intersection",
+      "name": "Set Intersection",
+      "description": "The intersection of two sets A and B is the set of elements which are in both A and B",
+      "tags": [
+        "set theory",
+        "operations",
+        "binary operations"
+      ],
+      "aliases": [
+        "intersection",
+        "meet",
+        "conjunction of sets"
+      ],
+      "typstString": "$A sect B$",
+      "typstCanonical": "A sect B",
+      "latexString": "A \\cap B",
+      "unicodeString": "A ∩ B",
+      "searchText": "set intersection the intersection of two sets a and b is the set of elements which are in both a and b set theory operations binary operations intersection meet conjunction of sets $a sect b$ a sect b a \\cap b a ∩ b"
+    },
+    {
+      "id": "set-union",
+      "name": "Set Union",
+      "description": "The union of two sets A and B is the set of elements which are in A, in B, or in both",
+      "tags": [
+        "set theory",
+        "operations",
+        "binary operations"
+      ],
+      "aliases": [
+        "union",
+        "join",
+        "disjunction of sets"
+      ],
+      "typstString": "$A union B$",
+      "typstCanonical": "A union B",
+      "latexString": "A \\cup B",
+      "unicodeString": "A ∪ B",
+      "searchText": "set union the union of two sets a and b is the set of elements which are in a, in b, or in both set theory operations binary operations union join disjunction of sets $a union b$ a union b a \\cup b a ∪ b"
+    },
+    {
+      "id": "summation",
+      "name": "Summation",
+      "description": "The sum of a sequence of numbers, typically indexed over a range",
+      "tags": [
+        "arithmetic",
+        "analysis",
+        "series"
+      ],
+      "aliases": [
+        "sum",
+        "sigma notation",
+        "series sum"
+      ],
+      "typstString": "$sum_(i=1)^n a_i$",
+      "typstCanonical": "sum_(i=1)^n a_i",
+      "latexString": "\\sum_{i=1}^{n} a_i",
+      "unicodeString": "∑ᵢ₌₁ⁿ aᵢ",
+      "searchText": "summation the sum of a sequence of numbers, typically indexed over a range arithmetic analysis series sum sigma notation series sum $sum_(i=1)^n a_i$ sum_(i=1)^n a_i \\sum_{i=1}^{n} a_i ∑ᵢ₌₁ⁿ aᵢ"
+    },
+    {
+      "id": "type-judgment",
       "name": "Type Judgment",
       "description": "A formal statement asserting that a term has a certain type in a given context",
       "tags": [
@@ -12,193 +133,65 @@
         "typing relation",
         "type assignment"
       ],
-      "typstString": "$Gamma tack e : tau$",
-      "typstCanonical": "Gamma tack e : tau",
+      "typstString": "$Gamma tack.r e : tau$",
+      "typstCanonical": "Gamma tack.r e : tau",
       "latexString": "\\Gamma \\vdash e : \\tau",
       "unicodeString": "",
-      "searchText": "type judgment a formal statement asserting that a term has a certain type in a given context type theory plt typing relation type assignment $gamma tack e : tau$ gamma tack e : tau \\gamma \\vdash e : \\tau "
+      "searchText": "type judgment a formal statement asserting that a term has a certain type in a given context type theory plt typing relation type assignment $gamma tack.r e : tau$ gamma tack.r e : tau \\gamma \\vdash e : \\tau "
     },
     {
-      "id": "vm-3LfehMRVIXii4w-h6h",
-      "name": "Lambda Abstraction",
-      "description": "A function definition in lambda calculus",
-      "tags": [
-        "lambda calculus",
-        "PLT"
-      ],
-      "aliases": [
-        "function literal",
-        "anonymous function"
-      ],
-      "typstString": "$lambda x. e$",
-      "typstCanonical": "lambda x. e",
-      "latexString": "\\lambda x. e",
-      "unicodeString": "",
-      "searchText": "lambda abstraction a function definition in lambda calculus lambda calculus plt function literal anonymous function $lambda x. e$ lambda x. e \\lambda x. e "
-    },
-    {
-      "id": "eDzhkQ3eTXVy6_WQyI8Y2",
-      "name": "Set Union",
-      "description": "The union of two sets A and B is the set of elements which are in A, in B, or in both",
-      "tags": [
-        "set theory",
-        "operations"
-      ],
-      "aliases": [
-        "union",
-        "join"
-      ],
-      "typstString": "$A union B$",
-      "typstCanonical": "A union B",
-      "latexString": "A \\cup B",
-      "unicodeString": "A ∪ B",
-      "searchText": "set union the union of two sets a and b is the set of elements which are in a, in b, or in both set theory operations union join $a union b$ a union b a \\cup b a ∪ b"
-    },
-    {
-      "id": "KFF9FPSA3Y2-FjBkctUsf",
-      "name": "Set Intersection",
-      "description": "The intersection of two sets A and B is the set of elements which are in both A and B",
-      "tags": [
-        "set theory",
-        "operations"
-      ],
-      "aliases": [
-        "intersection",
-        "meet"
-      ],
-      "typstString": "$A sect B$",
-      "typstCanonical": "A sect B",
-      "latexString": "A \\cap B",
-      "unicodeString": "A ∩ B",
-      "searchText": "set intersection the intersection of two sets a and b is the set of elements which are in both a and b set theory operations intersection meet $a sect b$ a sect b a \\cap b a ∩ b"
-    },
-    {
-      "id": "ME0L1W32YObGwSZoGU7BO",
-      "name": "Element Membership",
-      "description": "A relation between an element and a set, indicating that the element belongs to the set",
-      "tags": [
-        "set theory",
-        "relations"
-      ],
-      "aliases": [
-        "belongs to",
-        "is in",
-        "membership"
-      ],
-      "typstString": "$x in A$",
-      "typstCanonical": "x in A",
-      "latexString": "x \\in A",
-      "unicodeString": "x ∈ A",
-      "searchText": "element membership a relation between an element and a set, indicating that the element belongs to the set set theory relations belongs to is in membership $x in a$ x in a x \\in a x ∈ a"
-    },
-    {
-      "id": "55xvhgQClMP7QCPN15ea5",
-      "name": "Summation",
-      "description": "The sum of a sequence of numbers",
-      "tags": [
-        "arithmetic",
-        "analysis"
-      ],
-      "aliases": [
-        "sum",
-        "sigma notation"
-      ],
-      "typstString": "$sum_(i=1)^n a_i$",
-      "typstCanonical": "sum_(i=1)^n a_i",
-      "latexString": "\\sum_{i=1}^{n} a_i",
-      "unicodeString": "∑ᵢ₌₁ⁿ aᵢ",
-      "searchText": "summation the sum of a sequence of numbers arithmetic analysis sum sigma notation $sum_(i=1)^n a_i$ sum_(i=1)^n a_i \\sum_{i=1}^{n} a_i ∑ᵢ₌₁ⁿ aᵢ"
-    },
-    {
-      "id": "KdWvbBQtAxnDa0mE1Mfs9",
+      "id": "universal-quantification",
       "name": "Universal Quantification",
       "description": "A logical statement asserting that a property holds for all elements in a domain",
       "tags": [
         "logic",
-        "quantifiers"
+        "quantifiers",
+        "first-order logic"
       ],
       "aliases": [
         "for all",
-        "universal quantifier"
+        "universal quantifier",
+        "generalization"
       ],
       "typstString": "$forall x. P(x)$",
       "typstCanonical": "forall x. P(x)",
       "latexString": "\\forall x. P(x)",
       "unicodeString": "∀x. P(x)",
-      "searchText": "universal quantification a logical statement asserting that a property holds for all elements in a domain logic quantifiers for all universal quantifier $forall x. p(x)$ forall x. p(x) \\forall x. p(x) ∀x. p(x)"
-    },
-    {
-      "id": "6RMf2iFsGtHMz38TfD0PD",
-      "name": "Existential Quantification",
-      "description": "A logical statement asserting that there exists at least one element satisfying a property",
-      "tags": [
-        "logic",
-        "quantifiers"
-      ],
-      "aliases": [
-        "there exists",
-        "existential quantifier"
-      ],
-      "typstString": "$exists x. P(x)$",
-      "typstCanonical": "exists x. P(x)",
-      "latexString": "\\exists x. P(x)",
-      "unicodeString": "∃x. P(x)",
-      "searchText": "existential quantification a logical statement asserting that there exists at least one element satisfying a property logic quantifiers there exists existential quantifier $exists x. p(x)$ exists x. p(x) \\exists x. p(x) ∃x. p(x)"
+      "searchText": "universal quantification a logical statement asserting that a property holds for all elements in a domain logic quantifiers first-order logic for all universal quantifier generalization $forall x. p(x)$ forall x. p(x) \\forall x. p(x) ∀x. p(x)"
     }
   ],
   "papers": [
     {
-      "id": "fn8PKJz8LXGCrS_ajrq9W",
-      "title": "Types and Programming Languages",
-      "authors": [
-        "Benjamin C. Pierce"
-      ],
-      "year": 2002,
-      "abstract": "",
-      "searchText": "types and programming languages benjamin c. pierce "
-    },
-    {
-      "id": "skuDmjVFLycN2LOJIum2h",
+      "id": "abadi-1996-theory",
       "title": "A Theory of Objects",
       "authors": [
         "Martín Abadi",
         "Luca Cardelli"
       ],
       "year": 1996,
-      "abstract": "",
-      "searchText": "a theory of objects martín abadi luca cardelli "
+      "abstract": "A foundation for object-oriented programming based on typed lambda calculus.",
+      "searchText": "a theory of objects martín abadi luca cardelli a foundation for object-oriented programming based on typed lambda calculus."
     },
     {
-      "id": "MKE3OY_oHGwY6uivBvlb8",
-      "title": "Types and Programming Languages",
-      "authors": [
-        "Benjamin C. Pierce"
-      ],
-      "year": 2002,
-      "abstract": "",
-      "searchText": "types and programming languages benjamin c. pierce "
-    },
-    {
-      "id": "hna6wUYdbXLgn4_Sg0QKD",
-      "title": "A Theory of Objects",
-      "authors": [
-        "Martín Abadi",
-        "Luca Cardelli"
-      ],
-      "year": 1996,
-      "abstract": "",
-      "searchText": "a theory of objects martín abadi luca cardelli "
-    },
-    {
-      "id": "H11nmQdJ9RSPZIApAOnBq",
+      "id": "hrbacek-1999-set-theory",
       "title": "Introduction to Set Theory",
       "authors": [
         "Karel Hrbacek",
         "Thomas Jech"
       ],
       "year": 1999,
-      "abstract": "",
-      "searchText": "introduction to set theory karel hrbacek thomas jech "
+      "abstract": "A modern introduction to set theory, covering both naive and axiomatic approaches.",
+      "searchText": "introduction to set theory karel hrbacek thomas jech a modern introduction to set theory, covering both naive and axiomatic approaches."
+    },
+    {
+      "id": "pierce-2002-types",
+      "title": "Types and Programming Languages",
+      "authors": [
+        "Benjamin C. Pierce"
+      ],
+      "year": 2002,
+      "abstract": "A comprehensive introduction to type systems and programming language theory.",
+      "searchText": "types and programming languages benjamin c. pierce a comprehensive introduction to type systems and programming language theory."
     }
   ]
 }

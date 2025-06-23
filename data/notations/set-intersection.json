@@ -1,0 +1,29 @@
+{
+  "id": "set-intersection",
+  "name": "Set Intersection",
+  "description": "The intersection of two sets A and B is the set of elements which are in both A and B",
+  "tags": [
+    "set theory",
+    "operations",
+    "binary operations"
+  ],
+  "aliases": [
+    "intersection",
+    "meet",
+    "conjunction of sets"
+  ],
+  "typstString": "$A sect B$",
+  "typstCanonical": "A sect B",
+  "latexString": "A \\cap B",
+  "unicodeString": "A ∩ B",
+  "papers": [
+    {
+      "paperId": "hrbacek-1999-set-theory",
+      "context": "Basic set operations introduced in Chapter 2",
+      "pageNumber": "46",
+      "isPrimaryDefinition": true
+    }
+  ],
+  "createdAt": "2025-06-23T18:19:01.067Z",
+  "updatedAt": "2025-06-23T18:19:01.067Z"
+}

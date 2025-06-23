@@ -1,0 +1,29 @@
+{
+  "id": "summation",
+  "name": "Summation",
+  "description": "The sum of a sequence of numbers, typically indexed over a range",
+  "tags": [
+    "arithmetic",
+    "analysis",
+    "series"
+  ],
+  "aliases": [
+    "sum",
+    "sigma notation",
+    "series sum"
+  ],
+  "typstString": "$sum_(i=1)^n a_i$",
+  "typstCanonical": "sum_(i=1)^n a_i",
+  "latexString": "\\sum_{i=1}^{n} a_i",
+  "unicodeString": "∑ᵢ₌₁ⁿ aᵢ",
+  "papers": [
+    {
+      "paperId": "hrbacek-1999-set-theory",
+      "context": "Mathematical notation appendix",
+      "pageNumber": "302",
+      "isPrimaryDefinition": false
+    }
+  ],
+  "createdAt": "2025-06-23T18:19:01.067Z",
+  "updatedAt": "2025-06-23T18:19:01.067Z"
+}

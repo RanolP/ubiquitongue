@@ -1,0 +1,12 @@
+{
+  "id": "pierce-2002-types",
+  "title": "Types and Programming Languages",
+  "authors": [
+    "Benjamin C. Pierce"
+  ],
+  "year": 2002,
+  "bibtex": "@book{pierce2002types, title={Types and Programming Languages}, author={Pierce, Benjamin C.}, year={2002}, publisher={MIT Press}}",
+  "abstract": "A comprehensive introduction to type systems and programming language theory.",
+  "createdAt": "2025-06-23T18:19:01.067Z",
+  "updatedAt": "2025-06-23T18:19:01.067Z"
+}

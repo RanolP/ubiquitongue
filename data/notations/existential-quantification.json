@@ -1,0 +1,29 @@
+{
+  "id": "existential-quantification",
+  "name": "Existential Quantification",
+  "description": "A logical statement asserting that there exists at least one element satisfying a property",
+  "tags": [
+    "logic",
+    "quantifiers",
+    "first-order logic"
+  ],
+  "aliases": [
+    "there exists",
+    "existential quantifier",
+    "existence"
+  ],
+  "typstString": "$exists x. P(x)$",
+  "typstCanonical": "exists x. P(x)",
+  "latexString": "\\exists x. P(x)",
+  "unicodeString": "∃x. P(x)",
+  "papers": [
+    {
+      "paperId": "hrbacek-1999-set-theory",
+      "context": "First-order logic introduction",
+      "pageNumber": "121",
+      "isPrimaryDefinition": true
+    }
+  ],
+  "createdAt": "2025-06-23T18:19:01.067Z",
+  "updatedAt": "2025-06-23T18:19:01.067Z"
+}

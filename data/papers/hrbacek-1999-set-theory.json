@@ -1,0 +1,13 @@
+{
+  "id": "hrbacek-1999-set-theory",
+  "title": "Introduction to Set Theory",
+  "authors": [
+    "Karel Hrbacek",
+    "Thomas Jech"
+  ],
+  "year": 1999,
+  "bibtex": "@book{hrbacek1999introduction, title={Introduction to Set Theory}, author={Hrbacek, Karel and Jech, Thomas}, year={1999}, publisher={Marcel Dekker}}",
+  "abstract": "A modern introduction to set theory, covering both naive and axiomatic approaches.",
+  "createdAt": "2025-06-23T18:19:01.067Z",
+  "updatedAt": "2025-06-23T18:19:01.067Z"
+}

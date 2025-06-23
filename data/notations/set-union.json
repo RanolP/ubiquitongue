@@ -1,0 +1,29 @@
+{
+  "id": "set-union",
+  "name": "Set Union",
+  "description": "The union of two sets A and B is the set of elements which are in A, in B, or in both",
+  "tags": [
+    "set theory",
+    "operations",
+    "binary operations"
+  ],
+  "aliases": [
+    "union",
+    "join",
+    "disjunction of sets"
+  ],
+  "typstString": "$A union B$",
+  "typstCanonical": "A union B",
+  "latexString": "A \\cup B",
+  "unicodeString": "A ∪ B",
+  "papers": [
+    {
+      "paperId": "hrbacek-1999-set-theory",
+      "context": "Basic set operations introduced in Chapter 2",
+      "pageNumber": "45",
+      "isPrimaryDefinition": true
+    }
+  ],
+  "createdAt": "2025-06-23T18:19:01.067Z",
+  "updatedAt": "2025-06-23T18:19:01.067Z"
+}

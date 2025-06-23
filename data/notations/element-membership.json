@@ -1,0 +1,30 @@
+{
+  "id": "element-membership",
+  "name": "Element Membership",
+  "description": "A relation between an element and a set, indicating that the element belongs to the set",
+  "tags": [
+    "set theory",
+    "relations",
+    "membership"
+  ],
+  "aliases": [
+    "belongs to",
+    "is in",
+    "membership",
+    "element of"
+  ],
+  "typstString": "$x in A$",
+  "typstCanonical": "x in A",
+  "latexString": "x \\in A",
+  "unicodeString": "x ∈ A",
+  "papers": [
+    {
+      "paperId": "hrbacek-1999-set-theory",
+      "context": "Fundamental set relation, first axiom of set theory",
+      "pageNumber": "12",
+      "isPrimaryDefinition": true
+    }
+  ],
+  "createdAt": "2025-06-23T18:19:01.067Z",
+  "updatedAt": "2025-06-23T18:19:01.067Z"
+}
