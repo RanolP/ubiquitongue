@@ -12,9 +12,11 @@
     "@astrojs/sitemap": "^3.4.1",
     "@astrojs/solid-js": "^5.1.0",
     "@myriaddreamin/typst.ts": "^0.6.0",
+    "@types/flexsearch": "^0.7.42",
     "@unocss/astro": "^66.2.3",
     "@unocss/reset": "^66.2.3",
     "astro": "^5.8.1",
+    "flexsearch": "^0.8.205",
     "hono": "^4.8.2",
     "solid-js": "^1.9.7",
     "unocss": "^66.2.3"

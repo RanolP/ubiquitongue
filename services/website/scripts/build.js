@@ -21,7 +21,24 @@ async function build() {
     process.exit(1);
   }
 
-  // 2. Start read GraphQL server
+  // 2. Generate search indices
+  console.log('🔍 Generating search indices...');
+  await new Promise((resolve, reject) => {
+    const indexGen = spawn('node', ['scripts/generate-search-index.js'], {
+      cwd: rootDir,
+      stdio: 'inherit',
+    });
+
+    indexGen.on('close', (code) => {
+      if (code === 0) {
+        resolve();
+      } else {
+        reject(new Error(`Search index generation failed with code ${code}`));
+      }
+    });
+  });
+
+  // 3. Start read GraphQL server
   console.log('🚀 Starting read GraphQL server...');
   const serverProcess = spawn('tsx', ['src/data/run-server.ts', dataDest], {
     cwd: rootDir,
@@ -32,7 +49,7 @@ async function build() {
   await new Promise(resolve => setTimeout(resolve, 2000));
 
   try {
-    // 3. Run Astro build
+    // 4. Run Astro build
     console.log('🔨 Building Astro site...');
     await new Promise((resolve, reject) => {
       const astro = spawn('pnpm', ['astro', 'build'], {
@@ -54,7 +71,7 @@ async function build() {
     console.error('❌ Build failed:', error);
     process.exit(1);
   } finally {
-    // 4. Stop GraphQL server
+    // 5. Stop GraphQL server
     serverProcess.kill();
   }
 }

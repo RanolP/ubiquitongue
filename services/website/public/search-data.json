@@ -1,0 +1,73 @@
+{
+  "semantics": [
+    {
+      "id": "VTjq16Wgq0VOl7i2t0Crw",
+      "name": "Type Judgment",
+      "description": "A formal statement asserting that a term has a certain type in a given context",
+      "tags": [
+        "type theory",
+        "PLT"
+      ],
+      "aliases": [
+        "typing relation",
+        "type assignment"
+      ],
+      "searchText": "type judgment a formal statement asserting that a term has a certain type in a given context type theory plt typing relation type assignment"
+    },
+    {
+      "id": "RVdMnoYuqjnQpqo6CizxZ",
+      "name": "Lambda Abstraction",
+      "description": "A function definition in lambda calculus",
+      "tags": [
+        "lambda calculus",
+        "PLT"
+      ],
+      "aliases": [
+        "function literal",
+        "anonymous function"
+      ],
+      "searchText": "lambda abstraction a function definition in lambda calculus lambda calculus plt function literal anonymous function"
+    }
+  ],
+  "syntaxes": [
+    {
+      "id": "ON9drboVJsrXlmZXJyF8U",
+      "typstString": "$Gamma tack e : tau$",
+      "typstCanonical": "Gamma tack e : tau",
+      "description": "Standard notation for type judgments",
+      "latexString": "\\Gamma \\vdash e : \\tau",
+      "searchText": "$gamma tack e : tau$ gamma tack e : tau standard notation for type judgments \\gamma \\vdash e : \\tau"
+    },
+    {
+      "id": "oHFSbPD8kIX-W48gYw5G3",
+      "typstString": "$lambda x. e$",
+      "typstCanonical": "lambda x. e",
+      "description": "Lambda abstraction notation",
+      "latexString": "\\lambda x. e",
+      "searchText": "$lambda x. e$ lambda x. e lambda abstraction notation \\lambda x. e"
+    }
+  ],
+  "papers": [
+    {
+      "id": "fn8PKJz8LXGCrS_ajrq9W",
+      "title": "Types and Programming Languages",
+      "authors": [
+        "Benjamin C. Pierce"
+      ],
+      "year": 2002,
+      "abstract": "",
+      "searchText": "types and programming languages benjamin c. pierce "
+    },
+    {
+      "id": "skuDmjVFLycN2LOJIum2h",
+      "title": "A Theory of Objects",
+      "authors": [
+        "Martín Abadi",
+        "Luca Cardelli"
+      ],
+      "year": 1996,
+      "abstract": "",
+      "searchText": "a theory of objects martín abadi luca cardelli "
+    }
+  ]
+}

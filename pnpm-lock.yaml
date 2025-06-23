@@ -54,6 +54,9 @@ importers:
       '@myriaddreamin/typst.ts':
         specifier: ^0.6.0
         version: 0.6.0
+      '@types/flexsearch':
+        specifier: ^0.7.42
+        version: 0.7.42
       '@unocss/astro':
         specifier: ^66.2.3
         version: 66.2.3(vite@6.3.5(@types/node@22.15.29)(jiti@2.4.2)(tsx@4.20.3))(vue@3.5.17(typescript@5.8.3))
@@ -63,6 +66,9 @@ importers:
       astro:
         specifier: ^5.8.1
         version: 5.8.1(@types/node@22.15.29)(encoding@0.1.13)(jiti@2.4.2)(rollup@4.41.1)(tsx@4.20.3)(typescript@5.8.3)
+      flexsearch:
+        specifier: ^0.8.205
+        version: 0.8.205
       hono:
         specifier: ^4.8.2
         version: 4.8.2
@@ -814,6 +820,10 @@ packages:
   '@types/express@5.0.3':
     resolution: {integrity: sha512-wGA0NX93b19/dZC1J18tKWVIYWyyF2ZjT9vin/NRu0qzzvfVzWjs04iq2rQ3H65vCTQYlRqs3YHfY7zjdV+9Kw==}
 
+  '@types/flexsearch@0.7.42':
+    resolution: {integrity: sha512-FdKaw3dPgcCvqU9w8SGgqx8PrxFF2EKySRhEj1nc45HNe/2cBLff3pF52C67hzeUbNhq49t7XRIIibBd41vcIg==}
+    deprecated: This is a stub types definition. flexsearch provides its own type definitions, so you do not need this installed.
+
   '@types/fontkit@2.0.8':
     resolution: {integrity: sha512-wN+8bYxIpJf+5oZdrdtaX04qUuWHcKxcDEgRS9Qm9ZClSHjzEn13SxUC+5eRM+4yXIeTYk8mTzLAWGF64847ew==}
 
@@ -1423,6 +1433,9 @@ packages:
   flattie@1.1.1:
     resolution: {integrity: sha512-9UbaD6XdAL97+k/n+N7JwX46K/M6Zc6KcFYskrYL8wbBV/Uyk0CTAMY0VT+qiK5PM7AIc9aTWYtq65U7T+aCNQ==}
     engines: {node: '>=8'}
+
+  flexsearch@0.8.205:
+    resolution: {integrity: sha512-REFjMqy86DKkCTJ4gIE42c9MVm9t1vUWfEub/8taixYuhvyu4jd4XmFALk5VuKW4GH4VLav8A4BJboTsslHF1w==}
 
   fontace@0.3.0:
     resolution: {integrity: sha512-czoqATrcnxgWb/nAkfyIrRp6Q8biYj7nGnL6zfhTcX+JKKpWHFBnb8uNMw/kZr7u++3Y3wYSYoZgHkCcsuBpBg==}
@@ -3381,6 +3394,10 @@ snapshots:
       '@types/express-serve-static-core': 5.0.6
       '@types/serve-static': 1.15.8
 
+  '@types/flexsearch@0.7.42':
+    dependencies:
+      flexsearch: 0.8.205
+
   '@types/fontkit@2.0.8':
     dependencies:
       '@types/node': 22.15.29
@@ -4179,6 +4196,8 @@ snapshots:
       - supports-color
 
   flattie@1.1.1: {}
+
+  flexsearch@0.8.205: {}
 
   fontace@0.3.0:
     dependencies:

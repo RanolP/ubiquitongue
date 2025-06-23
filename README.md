@@ -8,9 +8,9 @@ We'll make a bidirectional index from semantics to syntaxes coupled with field a
 
 ## Live Website
 
-Visit the live site at: https://ranolp.github.io/ubiquitongue
+Visit the live site at: https://ubqt.ranolp.dev
 
-_Note: If the site is not available yet, GitHub Pages needs to be enabled in the repository settings._
+_Note: If the site is not available yet, GitHub Pages needs to be enabled in the repository settings and DNS needs to be configured._
 
 ## Development
 
@@ -50,7 +50,7 @@ The website is automatically deployed to GitHub Pages when changes are pushed to
 2. Generates the static website
 3. Deploys to GitHub Pages
 
-The site will be available at: https://ranolp.github.io/ubiquitongue
+The site will be available at: https://ubqt.ranolp.dev
 
 ## Acknowledgement
 

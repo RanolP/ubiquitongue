@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Search } from '../components/solid/Search';
-import { data } from '../lib/data';
+import { SearchWithFlexSearch } from '../components/solid/SearchWithFlexSearch';
 import { url } from '../lib/url';
 ---
 
@@ -17,12 +16,7 @@ import { url } from '../lib/url';
     </div>
 
     <div class="mt-12">
-      <Search 
-        semantics={data.semantics}
-        syntaxes={data.syntaxes}
-        papers={data.papers}
-        client:load 
-      />
+      <SearchWithFlexSearch client:load />
     </div>
 
     <div class="mt-16">

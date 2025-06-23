@@ -6,8 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://ranolp.github.io',
-  base: '/ubiquitongue',
+  site: 'https://ubqt.ranolp.dev',
   integrations: [
     solidJs(),
     unocss({
