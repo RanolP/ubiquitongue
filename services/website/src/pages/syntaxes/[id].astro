@@ -1,0 +1,71 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { data, getSyntaxById, getUsagesBySyntaxId } from '../../lib/data';
+import { url } from '../../lib/url';
+import { SyntaxDisplay } from '../../components/solid/SyntaxDisplay';
+
+export async function getStaticPaths() {
+  return data.syntaxes.map((syntax) => ({
+    params: { id: syntax.id },
+  }));
+}
+
+const { id } = Astro.params;
+const syntax = getSyntaxById(id!);
+const usages = getUsagesBySyntaxId(id!);
+
+if (!syntax) {
+  return Astro.redirect(url('/404'));
+}
+---
+
+<Layout title={syntax.typstString}>
+  <div>
+    <a href={url('/syntaxes')} class="text-primary hover:text-primary/80">← Back to Syntaxes</a>
+    
+    <h1 class="mt-4 text-3xl font-bold text-gray-900">Syntax Details</h1>
+    
+    <div class="mt-6">
+      <SyntaxDisplay syntax={syntax} showDescription={true} client:load />
+    </div>
+
+    {usages.length > 0 && (
+      <div class="mt-8">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">Used in</h2>
+        <div class="space-y-3">
+          {usages.map((usage) => {
+            const semantic = data.semantics.find(s => s.id === usage.semanticId);
+            const paper = data.papers.find(p => p.id === usage.paperId);
+            
+            return (
+              <div class="bg-white shadow rounded-lg p-4">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <h3 class="font-medium">
+                      <a href={url(`/semantics/${semantic?.id}`)} class="text-primary hover:text-primary/80">
+                        {semantic?.name}
+                      </a>
+                    </h3>
+                    <p class="text-sm text-gray-600 mt-1">
+                      in <a href={url(`/papers/${paper?.id}`)} class="text-primary hover:text-primary/80">
+                        {paper?.title}
+                      </a> ({paper?.year})
+                    </p>
+                    {usage.context && (
+                      <p class="text-sm text-gray-500 mt-2">{usage.context}</p>
+                    )}
+                  </div>
+                  {usage.isPrimaryDefinition && (
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                      Primary
+                    </span>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    )}
+  </div>
+</Layout>

@@ -1,0 +1,24 @@
+[
+  {
+    "semanticId": "VTjq16Wgq0VOl7i2t0Crw",
+    "syntaxId": "ON9drboVJsrXlmZXJyF8U",
+    "paperId": "fn8PKJz8LXGCrS_ajrq9W",
+    "context": "Introduced in Chapter 3",
+    "pageNumber": "32",
+    "isPrimaryDefinition": true,
+    "id": "SDT8dCfXLIucpHA_ZDvNf",
+    "createdAt": 1750693069817,
+    "updatedAt": 1750693069817
+  },
+  {
+    "semanticId": "RVdMnoYuqjnQpqo6CizxZ",
+    "syntaxId": "oHFSbPD8kIX-W48gYw5G3",
+    "paperId": "fn8PKJz8LXGCrS_ajrq9W",
+    "context": "Used throughout the book",
+    "pageNumber": "15",
+    "isPrimaryDefinition": false,
+    "id": "OOmR349ZIotF2Nud47wF7",
+    "createdAt": 1750693069817,
+    "updatedAt": 1750693069817
+  }
+]

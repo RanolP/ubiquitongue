@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { data } from '../../lib/data';
+import { url } from '../../lib/url';
+import { SemanticCard } from '../../components/solid/SemanticCard';
+
+const semantics = data.semantics;
+---
+
+<Layout title="Semantics">
+  <div>
+    <h1 class="text-3xl font-bold text-gray-900">Semantics</h1>
+    <p class="mt-2 text-gray-600">Mathematical and computer science concepts</p>
+    
+    <div class="mt-8 grid gap-4">
+      {semantics.map((semantic: any) => (
+        <SemanticCard semantic={semantic} href={url(`/semantics/${semantic.id}`)} client:visible />
+      ))}
+    </div>
+  </div>
+</Layout>

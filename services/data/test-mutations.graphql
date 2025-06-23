@@ -1,0 +1,61 @@
+# Create a paper
+mutation CreatePaper {
+  createPaper(
+    title: "Types and Programming Languages"
+    authors: ["Benjamin C. Pierce"]
+    year: 2002
+    bibtex: "@book{pierce2002types, ...}"
+  ) {
+    id
+    title
+    authors
+    year
+  }
+}
+
+# Create a semantic
+mutation CreateSemantic {
+  createSemantic(
+    name: "Type Judgment"
+    description: "A formal statement asserting that a term has a certain type"
+    tags: ["type theory", "PLT"]
+    aliases: ["typing relation", "type assignment"]
+  ) {
+    id
+    name
+    description
+  }
+}
+
+# Create a syntax
+mutation CreateSyntax {
+  createSyntax(
+    typstString: "$Gamma tack e : tau$"
+    latexString: "\\Gamma \\vdash e : \\tau"
+    typstCanonical: "Gamma tack e : tau"
+    description: "Standard notation for type judgments"
+  ) {
+    id
+    typstString
+    typstCanonical
+  }
+}
+
+# Query all data
+query GetAllData {
+  papers {
+    id
+    title
+    year
+  }
+  semantics {
+    id
+    name
+    tags
+  }
+  syntaxes {
+    id
+    typstString
+    typstCanonical
+  }
+}

@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { data } from '../../lib/data';
+import { url } from '../../lib/url';
+import { SyntaxDisplay } from '../../components/solid/SyntaxDisplay';
+
+const syntaxes = data.syntaxes;
+---
+
+<Layout title="Syntaxes">
+  <div>
+    <h1 class="text-3xl font-bold text-gray-900">Syntaxes</h1>
+    <p class="mt-2 text-gray-600">Notations and symbols used in academic literature</p>
+    
+    <div class="mt-8 grid gap-4">
+      {syntaxes.map((syntax: any) => (
+        <a href={url(`/syntaxes/${syntax.id}`)} class="block">
+          <SyntaxDisplay syntax={syntax} showDescription={true} client:visible />
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>

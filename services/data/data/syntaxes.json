@@ -1,0 +1,20 @@
+[
+  {
+    "typstString": "$Gamma tack e : tau$",
+    "latexString": "\\Gamma \\vdash e : \\tau",
+    "typstCanonical": "Gamma tack e : tau",
+    "description": "Standard notation for type judgments",
+    "id": "ON9drboVJsrXlmZXJyF8U",
+    "createdAt": 1750693069817,
+    "updatedAt": 1750693069817
+  },
+  {
+    "typstString": "$lambda x. e$",
+    "latexString": "\\lambda x. e",
+    "typstCanonical": "lambda x. e",
+    "description": "Lambda abstraction notation",
+    "id": "oHFSbPD8kIX-W48gYw5G3",
+    "createdAt": 1750693069817,
+    "updatedAt": 1750693069817
+  }
+]

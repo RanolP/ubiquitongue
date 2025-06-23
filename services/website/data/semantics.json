@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Type Judgment",
+    "description": "A formal statement asserting that a term has a certain type in a given context",
+    "tags": [
+      "type theory",
+      "PLT"
+    ],
+    "aliases": [
+      "typing relation",
+      "type assignment"
+    ],
+    "id": "VTjq16Wgq0VOl7i2t0Crw",
+    "createdAt": 1750693069817,
+    "updatedAt": 1750693069817
+  },
+  {
+    "name": "Lambda Abstraction",
+    "description": "A function definition in lambda calculus",
+    "tags": [
+      "lambda calculus",
+      "PLT"
+    ],
+    "aliases": [
+      "function literal",
+      "anonymous function"
+    ],
+    "id": "RVdMnoYuqjnQpqo6CizxZ",
+    "createdAt": 1750693069817,
+    "updatedAt": 1750693069817
+  }
+]

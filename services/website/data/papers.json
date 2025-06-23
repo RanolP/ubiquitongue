@@ -1,0 +1,25 @@
+[
+  {
+    "title": "Types and Programming Languages",
+    "authors": [
+      "Benjamin C. Pierce"
+    ],
+    "year": 2002,
+    "bibtex": "@book{pierce2002types, title={Types and Programming Languages}, author={Pierce, Benjamin C.}, year={2002}, publisher={MIT Press}}",
+    "id": "fn8PKJz8LXGCrS_ajrq9W",
+    "createdAt": 1750693069816,
+    "updatedAt": 1750693069816
+  },
+  {
+    "title": "A Theory of Objects",
+    "authors": [
+      "Martín Abadi",
+      "Luca Cardelli"
+    ],
+    "year": 1996,
+    "bibtex": "@book{abadi1996theory, title={A Theory of Objects}, author={Abadi, Martín and Cardelli, Luca}, year={1996}, publisher={Springer}}",
+    "id": "skuDmjVFLycN2LOJIum2h",
+    "createdAt": 1750693069816,
+    "updatedAt": 1750693069816
+  }
+]
