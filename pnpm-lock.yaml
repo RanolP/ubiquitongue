@@ -57,9 +57,12 @@ importers:
       '@myriaddreamin/typst-ts-node-compiler':
         specifier: 0.6.1-rc1
         version: 0.6.1-rc1
+      '@myriaddreamin/typst-ts-renderer':
+        specifier: 0.6.1-rc1
+        version: 0.6.1-rc1
       '@myriaddreamin/typst.ts':
         specifier: ^0.6.0
-        version: 0.6.0
+        version: 0.6.0(@myriaddreamin/typst-ts-renderer@0.6.1-rc1)
       '@types/flexsearch':
         specifier: ^0.7.42
         version: 0.7.42
@@ -737,6 +740,9 @@ packages:
   '@myriaddreamin/typst-ts-node-compiler@0.6.1-rc1':
     resolution: {integrity: sha512-KLIUWdQwDNqLoLV84Y48WVfN6UfcwZl/xPKD2wHxkzOF9DSw+hHiI+iN4AK28l0Iqk0Mb2XyCEy51G8hcSXI/Q==}
     engines: {node: '>= 10'}
+
+  '@myriaddreamin/typst-ts-renderer@0.6.1-rc1':
+    resolution: {integrity: sha512-rhXL147QMswTlX1Pmvw49zwGZ/2w0ilwCeD0TkBBbBj2njLLSwrQIO1j54DXpl7sq34kxy6qGetstbQUZdP9Ug==}
 
   '@myriaddreamin/typst.ts@0.6.0':
     resolution: {integrity: sha512-IUpetG0NyF2H6eXRm4j+NsbanJHIvyrffHEijqYb6q128sLWQgT1FYJS+h7dtjXmrBEfnIl1mI80DyfDR6kB/w==}
@@ -3791,9 +3797,13 @@ snapshots:
       '@myriaddreamin/typst-ts-node-compiler-win32-arm64-msvc': 0.6.1-rc1
       '@myriaddreamin/typst-ts-node-compiler-win32-x64-msvc': 0.6.1-rc1
 
-  '@myriaddreamin/typst.ts@0.6.0':
+  '@myriaddreamin/typst-ts-renderer@0.6.1-rc1': {}
+
+  '@myriaddreamin/typst.ts@0.6.0(@myriaddreamin/typst-ts-renderer@0.6.1-rc1)':
     dependencies:
       idb: 7.1.1
+    optionalDependencies:
+      '@myriaddreamin/typst-ts-renderer': 0.6.1-rc1
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:

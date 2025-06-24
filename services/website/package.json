@@ -15,6 +15,7 @@
     "@astrojs/sitemap": "^3.4.1",
     "@astrojs/solid-js": "^5.1.0",
     "@myriaddreamin/typst-ts-node-compiler": "0.6.1-rc1",
+    "@myriaddreamin/typst-ts-renderer": "0.6.1-rc1",
     "@myriaddreamin/typst.ts": "^0.6.0",
     "@types/flexsearch": "^0.7.42",
     "@types/moo": "^0.5.10",
