@@ -54,8 +54,6 @@ export const syntaxes = table('syntaxes', {
   typstString: text('typst_string').notNull().unique(), // The Typst notation string
   // LaTeX equivalent can be useful for display or search
   latexString: text('latex_string'),
-  // Canonical form for search
-  typstCanonical: text('typst_canonical').notNull(),
   description: text('description'), // Optional brief note about the syntax
   createdAt: integer('created_at', { mode: 'timestamp_ms' }).notNull().default(Date.now()),
   updatedAt: integer('updated_at', { mode: 'timestamp_ms' }).notNull().default(Date.now()),

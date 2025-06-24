@@ -14,9 +14,7 @@
     "element of"
   ],
   "typstString": "$x in A$",
-  "typstCanonical": "x in A",
   "latexString": "x \\in A",
-  "unicodeString": "x ∈ A",
   "papers": [
     {
       "paperId": "hrbacek-1999-set-theory",

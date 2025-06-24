@@ -13,9 +13,7 @@
     "conjunction of sets"
   ],
   "typstString": "$A sect B$",
-  "typstCanonical": "A sect B",
   "latexString": "A \\cap B",
-  "unicodeString": "A ∩ B",
   "papers": [
     {
       "paperId": "hrbacek-1999-set-theory",

@@ -37,14 +37,12 @@ async function seed() {
   const syn1 = db.syntaxes.create({
     typstString: '$Gamma tack e : tau$',
     latexString: '\\Gamma \\vdash e : \\tau',
-    typstCanonical: 'Gamma tack e : tau',
     description: 'Standard notation for type judgments'
   });
 
   const syn2 = db.syntaxes.create({
     typstString: '$lambda x. e$',
     latexString: '\\lambda x. e',
-    typstCanonical: 'lambda x. e',
     description: 'Lambda abstraction notation'
   });
 
@@ -99,21 +97,18 @@ async function seed() {
   const syn3 = db.syntaxes.create({
     typstString: '$A union B$',
     latexString: 'A \\cup B',
-    typstCanonical: 'A union B',
     description: 'Set union operation'
   });
 
   const syn4 = db.syntaxes.create({
     typstString: '$A sect B$',
     latexString: 'A \\cap B',
-    typstCanonical: 'A sect B',
     description: 'Set intersection operation'
   });
 
   const syn5 = db.syntaxes.create({
     typstString: '$x in A$',
     latexString: 'x \\in A',
-    typstCanonical: 'x in A',
     description: 'Element membership in a set'
   });
 
@@ -156,7 +151,6 @@ async function seed() {
   const syn6 = db.syntaxes.create({
     typstString: '$sum_(i=1)^n a_i$',
     latexString: '\\sum_{i=1}^{n} a_i',
-    typstCanonical: 'sum_(i=1)^n a_i',
     description: 'Summation from i=1 to n'
   });
 

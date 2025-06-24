@@ -21,7 +21,6 @@ interface Notation {
   
   // Syntax information
   typstString: string;
-  typstCanonical: string;
   latexString?: string;
   unicodeString?: string;
   
@@ -83,7 +82,6 @@ async function seedUnified() {
       tags: ['type theory', 'PLT'],
       aliases: ['typing relation', 'type assignment'],
       typstString: '$Gamma tack e : tau$',
-      typstCanonical: 'Gamma tack e : tau',
       latexString: '\\Gamma \\vdash e : \\tau',
       papers: [{
         paperId: papers[0].id,
@@ -101,7 +99,6 @@ async function seedUnified() {
       tags: ['lambda calculus', 'PLT'],
       aliases: ['function literal', 'anonymous function'],
       typstString: '$lambda x. e$',
-      typstCanonical: 'lambda x. e',
       latexString: '\\lambda x. e',
       papers: [{
         paperId: papers[0].id,
@@ -119,7 +116,6 @@ async function seedUnified() {
       tags: ['set theory', 'operations'],
       aliases: ['union', 'join'],
       typstString: '$A union B$',
-      typstCanonical: 'A union B',
       latexString: 'A \\cup B',
       unicodeString: 'A ∪ B',
       papers: [{
@@ -138,7 +134,6 @@ async function seedUnified() {
       tags: ['set theory', 'operations'],
       aliases: ['intersection', 'meet'],
       typstString: '$A sect B$',
-      typstCanonical: 'A sect B',
       latexString: 'A \\cap B',
       unicodeString: 'A ∩ B',
       papers: [{
@@ -157,7 +152,6 @@ async function seedUnified() {
       tags: ['set theory', 'relations'],
       aliases: ['belongs to', 'is in', 'membership'],
       typstString: '$x in A$',
-      typstCanonical: 'x in A',
       latexString: 'x \\in A',
       unicodeString: 'x ∈ A',
       papers: [{
@@ -176,7 +170,6 @@ async function seedUnified() {
       tags: ['arithmetic', 'analysis'],
       aliases: ['sum', 'sigma notation'],
       typstString: '$sum_(i=1)^n a_i$',
-      typstCanonical: 'sum_(i=1)^n a_i',
       latexString: '\\sum_{i=1}^{n} a_i',
       unicodeString: '∑ᵢ₌₁ⁿ aᵢ',
       papers: [{
@@ -195,7 +188,6 @@ async function seedUnified() {
       tags: ['logic', 'quantifiers'],
       aliases: ['for all', 'universal quantifier'],
       typstString: '$forall x. P(x)$',
-      typstCanonical: 'forall x. P(x)',
       latexString: '\\forall x. P(x)',
       unicodeString: '∀x. P(x)',
       papers: [{
@@ -214,7 +206,6 @@ async function seedUnified() {
       tags: ['logic', 'quantifiers'],
       aliases: ['there exists', 'existential quantifier'],
       typstString: '$exists x. P(x)$',
-      typstCanonical: 'exists x. P(x)',
       latexString: '\\exists x. P(x)',
       unicodeString: '∃x. P(x)',
       papers: [{

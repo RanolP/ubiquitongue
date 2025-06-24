@@ -3,3 +3,6 @@ dist/
 
 # generated types
 .astro/
+
+# precompiled assets
+src/assets/precompiled-typst/

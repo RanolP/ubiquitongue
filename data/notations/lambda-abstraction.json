@@ -13,7 +13,6 @@
     "lambda expression"
   ],
   "typstString": "$lambda x. e$",
-  "typstCanonical": "lambda x. e",
   "latexString": "\\lambda x. e",
   "papers": [
     {

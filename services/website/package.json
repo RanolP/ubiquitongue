@@ -4,13 +4,17 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "npm run prepare && astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prepare": "node scripts/prepare-fonts.js",
+    "precompile-typst": "node scripts/precompile-typst.js"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.4",
     "@astrojs/sitemap": "^3.4.1",
     "@astrojs/solid-js": "^5.1.0",
+    "@myriaddreamin/typst-ts-node-compiler": "0.6.1-rc1",
     "@myriaddreamin/typst.ts": "^0.6.0",
     "@types/flexsearch": "^0.7.42",
     "@types/moo": "^0.5.10",
@@ -21,6 +25,10 @@
     "hono": "^4.8.2",
     "moo": "^0.5.2",
     "solid-js": "^1.9.7",
+    "typescript": "^5.8.3",
     "unocss": "^66.2.3"
+  },
+  "devDependencies": {
+    "glob": "^11.0.3"
   }
 }

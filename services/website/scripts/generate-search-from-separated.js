@@ -45,7 +45,6 @@ async function generateSearchFromSeparated() {
       tags: n.tags,
       aliases: n.aliases,
       typstString: n.typstString,
-      typstCanonical: n.typstCanonical,
       latexString: n.latexString || '',
       unicodeString: n.unicodeString || '',
       searchText: [
@@ -54,7 +53,6 @@ async function generateSearchFromSeparated() {
         ...n.tags,
         ...n.aliases,
         n.typstString,
-        n.typstCanonical,
         n.latexString || '',
         n.unicodeString || ''
       ].join(' ').toLowerCase()

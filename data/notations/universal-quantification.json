@@ -13,9 +13,7 @@
     "generalization"
   ],
   "typstString": "$forall x. P(x)$",
-  "typstCanonical": "forall x. P(x)",
   "latexString": "\\forall x. P(x)",
-  "unicodeString": "∀x. P(x)",
   "papers": [
     {
       "paperId": "hrbacek-1999-set-theory",

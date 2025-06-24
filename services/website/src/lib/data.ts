@@ -33,7 +33,6 @@ export interface Syntax {
   id: string;
   typstString: string;
   latexString?: string;
-  typstCanonical: string;
   description?: string;
 }
 

@@ -1,7 +1,15 @@
-import { createSignal, createMemo, createEffect, For, Show, onMount } from 'solid-js';
+import {
+  createSignal,
+  createMemo,
+  createEffect,
+  For,
+  Show,
+  onMount,
+  type JSX,
+} from 'solid-js';
 import FlexSearch from 'flexsearch';
-import { url } from '../../lib/url';
-import { parseNotation, extractSearchTerms } from '../../lib/notation-parser';
+import { url } from '../lib/url';
+import { parseNotation, extractSearchTerms } from '../lib/notation-parser';
 
 interface SearchData {
   notations: Array<{
@@ -11,7 +19,6 @@ interface SearchData {
     tags: string[];
     aliases: string[];
     typstString: string;
-    typstCanonical: string;
     latexString?: string;
     unicodeString?: string;
     searchText: string;
@@ -26,15 +33,19 @@ interface SearchData {
   }>;
 }
 
-export function UnifiedSearch() {
+export function UnifiedSearch(): JSX.Element {
   const [query, setQuery] = createSignal('');
-  const [filter, setFilter] = createSignal<'all' | 'notations' | 'papers'>('all');
+  const [filter, setFilter] = createSignal<'all' | 'notations' | 'papers'>(
+    'all',
+  );
   const [searchData, setSearchData] = createSignal<SearchData | null>(null);
   const [indices, setIndices] = createSignal<{
-    notations: FlexSearch.Document<any>;
-    papers: FlexSearch.Document<any>;
+    notations: any;
+    papers: any;
   } | null>(null);
-  const [parsedQuery, setParsedQuery] = createSignal<ReturnType<typeof parseNotation> | null>(null);
+  const [parsedQuery, setParsedQuery] = createSignal<ReturnType<
+    typeof parseNotation
+  > | null>(null);
 
   // Load search data and initialize FlexSearch indices
   onMount(async () => {
@@ -47,24 +58,33 @@ export function UnifiedSearch() {
       const notationsIndex = new FlexSearch.Document({
         document: {
           id: 'id',
-          index: ['searchText', 'typstCanonical'],
-          store: ['id', 'name', 'description', 'tags', 'aliases', 'typstString', 'typstCanonical', 'latexString', 'unicodeString']
+          index: ['searchText'],
+          store: [
+            'id',
+            'name',
+            'description',
+            'tags',
+            'aliases',
+            'typstString',
+            'latexString',
+            'unicodeString',
+          ],
         },
-        tokenize: 'forward'
+        tokenize: 'forward',
       });
 
       const papersIndex = new FlexSearch.Document({
         document: {
           id: 'id',
           index: ['searchText'],
-          store: ['id', 'title', 'authors', 'year', 'abstract']
+          store: ['id', 'title', 'authors', 'year', 'abstract'],
         },
-        tokenize: 'forward'
+        tokenize: 'forward',
       });
 
       // Add documents to indices
-      searchData.notations.forEach(n => notationsIndex.add(n));
-      searchData.papers.forEach(p => papersIndex.add(p));
+      searchData()?.notations.forEach((n: any) => notationsIndex.add(n));
+      searchData()?.papers.forEach((p: any) => papersIndex.add(p));
 
       setIndices({ notations: notationsIndex, papers: papersIndex });
     } catch (error) {
@@ -94,54 +114,66 @@ export function UnifiedSearch() {
     const filterType = filter();
     const idx = indices()!;
     const parsed = parsedQuery();
-    
+
     if (parsed && parsed.type !== 'unknown') {
       const searchTerms = extractSearchTerms(parsed);
-      
+
       // For notations, prioritize exact canonical matches
-      const notationResults = filterType === 'all' || filterType === 'notations'
-        ? [
-            // First, exact canonical matches
-            ...searchData()!.notations
-              .filter(n => n.typstCanonical === parsed.canonical)
-              .map(n => n.id),
-            // Then, search for individual terms
-            ...searchTerms.flatMap(term => 
-              idx.notations.search(term, { limit: 5 }).map(r => r.result).flat()
-            )
-          ]
-        : [];
-      
+      const notationResults =
+        filterType === 'all' || filterType === 'notations'
+          ? [
+              // Search for individual terms
+              ...searchTerms.flatMap((term) =>
+                idx.notations
+                  .search(term, { limit: 5 })
+                  .map((r: any) => r.result)
+                  .flat(),
+              ),
+            ]
+          : [];
+
       // Remove duplicates
       const uniqueNotationResults = [...new Set(notationResults)];
-      
+
       const searchResults = {
         notations: uniqueNotationResults,
-        papers: filterType === 'all' || filterType === 'papers'
-          ? searchTerms.flatMap(term => 
-              idx.papers.search(term, { limit: 10 }).map(r => r.result).flat()
-            )
-          : []
+        papers:
+          filterType === 'all' || filterType === 'papers'
+            ? searchTerms.flatMap((term) =>
+                idx.papers
+                  .search(term, { limit: 10 })
+                  .map((r: any) => r.result)
+                  .flat(),
+              )
+            : [],
       };
-      
+
       return searchResults;
     } else {
       // Regular text search
       const searchResults = {
-        notations: filterType === 'all' || filterType === 'notations'
-          ? idx.notations.search(q, { limit: 10 }).map(r => r.result).flat()
-          : [],
-        papers: filterType === 'all' || filterType === 'papers'
-          ? idx.papers.search(q, { limit: 10 }).map(r => r.result).flat()
-          : []
+        notations:
+          filterType === 'all' || filterType === 'notations'
+            ? idx.notations
+                .search(q, { limit: 10 })
+                .map((r: any) => r.result)
+                .flat()
+            : [],
+        papers:
+          filterType === 'all' || filterType === 'papers'
+            ? idx.papers
+                .search(q, { limit: 10 })
+                .map((r: any) => r.result)
+                .flat()
+            : [],
       };
-      
+
       return searchResults;
     }
   });
 
-  const totalResults = createMemo(() => 
-    results().notations.length + results().papers.length
+  const totalResults = createMemo(
+    () => results().notations.length + results().papers.length,
   );
 
   return (
@@ -171,7 +203,7 @@ export function UnifiedSearch() {
 
       <Show when={parsedQuery()}>
         <div class="mt-2 p-2 bg-gray-100 rounded text-sm">
-          <span class="font-medium">Parsed as:</span> {parsedQuery()!.canonical} 
+          <span class="font-medium">Parsed as:</span> {parsedQuery()!.canonical}
           <span class="text-gray-600 ml-2">({parsedQuery()!.type})</span>
         </div>
       </Show>
@@ -181,7 +213,9 @@ export function UnifiedSearch() {
           <button
             onClick={() => setFilter('all')}
             class={`px-3 py-1 rounded-full text-sm ${
-              filter() === 'all' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700'
+              filter() === 'all'
+                ? 'bg-primary text-white'
+                : 'bg-gray-100 text-gray-700'
             }`}
           >
             All ({totalResults()})
@@ -189,7 +223,9 @@ export function UnifiedSearch() {
           <button
             onClick={() => setFilter('notations')}
             class={`px-3 py-1 rounded-full text-sm ${
-              filter() === 'notations' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700'
+              filter() === 'notations'
+                ? 'bg-primary text-white'
+                : 'bg-gray-100 text-gray-700'
             }`}
           >
             Notations ({results().notations.length})
@@ -197,7 +233,9 @@ export function UnifiedSearch() {
           <button
             onClick={() => setFilter('papers')}
             class={`px-3 py-1 rounded-full text-sm ${
-              filter() === 'papers' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700'
+              filter() === 'papers'
+                ? 'bg-primary text-white'
+                : 'bg-gray-100 text-gray-700'
             }`}
           >
             Papers ({results().papers.length})
@@ -211,20 +249,23 @@ export function UnifiedSearch() {
               <div class="space-y-2">
                 <For each={[...new Set(results().notations)]}>
                   {(notationId) => {
-                    const notation = searchData()?.notations.find(n => n.id === notationId);
+                    const notation = searchData()?.notations.find(
+                      (n) => n.id === notationId,
+                    );
                     return notation ? (
                       <a
                         href={url(`/notations/${notation.id}`)}
                         class="block bg-white rounded-lg shadow p-4 hover:shadow-md transition-shadow"
                       >
-                        <h4 class="font-medium text-primary">{notation.name}</h4>
-                        <p class="text-sm text-gray-600 mt-1">{notation.description}</p>
-                        <code class="text-sm font-mono text-gray-700 mt-2 block">{notation.typstString}</code>
-                        <Show when={parsedQuery() && notation.typstCanonical === parsedQuery()!.canonical}>
-                          <span class="inline-block mt-2 px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
-                            Exact match
-                          </span>
-                        </Show>
+                        <h4 class="font-medium text-primary">
+                          {notation.name}
+                        </h4>
+                        <p class="text-sm text-gray-600 mt-1">
+                          {notation.description}
+                        </p>
+                        <code class="text-sm font-mono text-gray-700 mt-2 block">
+                          {notation.typstString}
+                        </code>
                       </a>
                     ) : null;
                   }}
@@ -239,7 +280,9 @@ export function UnifiedSearch() {
               <div class="space-y-2">
                 <For each={[...new Set(results().papers)]}>
                   {(paperId) => {
-                    const paper = searchData()?.papers.find(p => p.id === paperId);
+                    const paper = searchData()?.papers.find(
+                      (p) => p.id === paperId,
+                    );
                     return paper ? (
                       <a
                         href={url(`/papers/${paper.id}`)}

@@ -3,5 +3,8 @@
 declare global {
   interface Window {
     $typst: any;
+    typstReady?: boolean;
   }
 }
+
+export {};

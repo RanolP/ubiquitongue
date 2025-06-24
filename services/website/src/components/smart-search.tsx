@@ -1,6 +1,15 @@
-import { createSignal, createMemo, createEffect, For, Show, onMount } from 'solid-js';
+import {
+  createSignal,
+  createMemo,
+  createEffect,
+  For,
+  Show,
+  onMount,
+  type JSX,
+} from 'solid-js';
 import FlexSearch from 'flexsearch';
-import { url } from '../../lib/url';
+import { url } from '../lib/url';
+import { parseNotation, extractSearchTerms } from '../lib/notation-parser';
 
 interface SearchData {
   semantics: Array<{
@@ -14,7 +23,6 @@ interface SearchData {
   syntaxes: Array<{
     id: string;
     typstString: string;
-    typstCanonical: string;
     description: string;
     latexString: string;
     searchText: string;
@@ -29,15 +37,20 @@ interface SearchData {
   }>;
 }
 
-export function SearchWithFlexSearch() {
+export function SmartSearch(): JSX.Element {
   const [query, setQuery] = createSignal('');
-  const [filter, setFilter] = createSignal<'all' | 'semantics' | 'syntaxes' | 'papers'>('all');
+  const [filter, setFilter] = createSignal<
+    'all' | 'semantics' | 'syntaxes' | 'papers'
+  >('all');
   const [searchData, setSearchData] = createSignal<SearchData | null>(null);
   const [indices, setIndices] = createSignal<{
-    semantics: FlexSearch.Document<any>;
-    syntaxes: FlexSearch.Document<any>;
-    papers: FlexSearch.Document<any>;
+    semantics: any;
+    syntaxes: any;
+    papers: any;
   } | null>(null);
+  const [parsedQuery, setParsedQuery] = createSignal<ReturnType<
+    typeof parseNotation
+  > | null>(null);
 
   // Load search data and initialize FlexSearch indices
   onMount(async () => {
@@ -51,37 +64,62 @@ export function SearchWithFlexSearch() {
         document: {
           id: 'id',
           index: ['searchText'],
-          store: ['id', 'name', 'description', 'tags', 'aliases']
+          store: ['id', 'name', 'description', 'tags', 'aliases'],
         },
-        tokenize: 'forward'
+        tokenize: 'forward',
       });
 
       const syntaxesIndex = new FlexSearch.Document({
         document: {
           id: 'id',
-          index: ['searchText', 'typstCanonical'],
-          store: ['id', 'typstString', 'typstCanonical', 'description', 'latexString']
+          index: ['searchText'],
+          store: [
+            'id',
+            'typstString',
+            'description',
+            'latexString',
+          ],
         },
-        tokenize: 'forward'
+        tokenize: 'forward',
       });
 
       const papersIndex = new FlexSearch.Document({
         document: {
           id: 'id',
           index: ['searchText'],
-          store: ['id', 'title', 'authors', 'year', 'abstract']
+          store: ['id', 'title', 'authors', 'year', 'abstract'],
         },
-        tokenize: 'forward'
+        tokenize: 'forward',
       });
 
       // Add documents to indices
-      data.semantics.forEach(s => semanticsIndex.add(s));
-      data.syntaxes.forEach(s => syntaxesIndex.add(s));
-      data.papers.forEach(p => papersIndex.add(p));
+      data.semantics.forEach((s) => semanticsIndex.add(s));
+      data.syntaxes.forEach((s) => syntaxesIndex.add(s));
+      data.papers.forEach((p) => papersIndex.add(p));
 
-      setIndices({ semantics: semanticsIndex, syntaxes: syntaxesIndex, papers: papersIndex });
+      setIndices({
+        semantics: semanticsIndex,
+        syntaxes: syntaxesIndex,
+        papers: papersIndex,
+      });
     } catch (error) {
       console.error('Failed to load search data:', error);
+    }
+  });
+
+  // Parse query when it changes
+  createEffect(() => {
+    const q = query().trim();
+    if (q) {
+      try {
+        const parsed = parseNotation(q);
+        setParsedQuery(parsed);
+      } catch (error) {
+        // If parsing fails, treat as regular text search
+        setParsedQuery(null);
+      }
+    } else {
+      setParsedQuery(null);
     }
   });
 
@@ -91,24 +129,87 @@ export function SearchWithFlexSearch() {
 
     const filterType = filter();
     const idx = indices()!;
-    
-    const searchResults = {
-      semantics: filterType === 'all' || filterType === 'semantics'
-        ? idx.semantics.search(q, { limit: 10 }).map(r => r.result).flat()
-        : [],
-      syntaxes: filterType === 'all' || filterType === 'syntaxes'
-        ? idx.syntaxes.search(q, { limit: 10 }).map(r => r.result).flat()
-        : [],
-      papers: filterType === 'all' || filterType === 'papers'
-        ? idx.papers.search(q, { limit: 10 }).map(r => r.result).flat()
-        : []
-    };
+    const parsed = parsedQuery();
 
-    return searchResults;
+    // If we have a parsed mathematical expression, search for the canonical form
+    if (parsed && parsed.type !== 'unknown') {
+      const searchTerms = extractSearchTerms(parsed);
+
+      // For syntaxes, prioritize exact canonical matches
+      const syntaxResults =
+        filterType === 'all' || filterType === 'syntaxes'
+          ? [
+              // Search for individual terms
+              ...searchTerms.flatMap((term) =>
+                idx.syntaxes
+                  .search(term, { limit: 5 })
+                  .map((r: any) => r.result)
+                  .flat(),
+              ),
+            ]
+          : [];
+
+      // Remove duplicates
+      const uniqueSyntaxResults = [...new Set(syntaxResults)];
+
+      const searchResults = {
+        semantics:
+          filterType === 'all' || filterType === 'semantics'
+            ? searchTerms.flatMap((term) =>
+                idx.semantics
+                  .search(term, { limit: 10 })
+                  .map((r: any) => r.result)
+                  .flat(),
+              )
+            : [],
+        syntaxes: uniqueSyntaxResults,
+        papers:
+          filterType === 'all' || filterType === 'papers'
+            ? searchTerms.flatMap((term) =>
+                idx.papers
+                  .search(term, { limit: 10 })
+                  .map((r: any) => r.result)
+                  .flat(),
+              )
+            : [],
+      };
+
+      return searchResults;
+    } else {
+      // Regular text search
+      const searchResults = {
+        semantics:
+          filterType === 'all' || filterType === 'semantics'
+            ? idx.semantics
+                .search(q, { limit: 10 })
+                .map((r: any) => r.result)
+                .flat()
+            : [],
+        syntaxes:
+          filterType === 'all' || filterType === 'syntaxes'
+            ? idx.syntaxes
+                .search(q, { limit: 10 })
+                .map((r: any) => r.result)
+                .flat()
+            : [],
+        papers:
+          filterType === 'all' || filterType === 'papers'
+            ? idx.papers
+                .search(q, { limit: 10 })
+                .map((r: any) => r.result)
+                .flat()
+            : [],
+      };
+
+      return searchResults;
+    }
   });
 
-  const totalResults = createMemo(() => 
-    results().semantics.length + results().syntaxes.length + results().papers.length
+  const totalResults = createMemo(
+    () =>
+      results().semantics.length +
+      results().syntaxes.length +
+      results().papers.length,
   );
 
   return (
@@ -118,7 +219,7 @@ export function SearchWithFlexSearch() {
           type="text"
           value={query()}
           onInput={(e) => setQuery(e.currentTarget.value)}
-          placeholder="Search notations, concepts, or papers..."
+          placeholder="Search notations (e.g., 'a ∪ b', 'sum i=1 to n', 'alpha + beta')..."
           class="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
         />
         <svg
@@ -136,12 +237,21 @@ export function SearchWithFlexSearch() {
         </svg>
       </div>
 
+      <Show when={parsedQuery()}>
+        <div class="mt-2 p-2 bg-gray-100 rounded text-sm">
+          <span class="font-medium">Parsed as:</span> {parsedQuery()!.canonical}
+          <span class="text-gray-600 ml-2">({parsedQuery()!.type})</span>
+        </div>
+      </Show>
+
       <Show when={query()}>
         <div class="mt-2 flex gap-2">
           <button
             onClick={() => setFilter('all')}
             class={`px-3 py-1 rounded-full text-sm ${
-              filter() === 'all' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700'
+              filter() === 'all'
+                ? 'bg-primary text-white'
+                : 'bg-gray-100 text-gray-700'
             }`}
           >
             All ({totalResults()})
@@ -149,7 +259,9 @@ export function SearchWithFlexSearch() {
           <button
             onClick={() => setFilter('semantics')}
             class={`px-3 py-1 rounded-full text-sm ${
-              filter() === 'semantics' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700'
+              filter() === 'semantics'
+                ? 'bg-primary text-white'
+                : 'bg-gray-100 text-gray-700'
             }`}
           >
             Semantics ({results().semantics.length})
@@ -157,7 +269,9 @@ export function SearchWithFlexSearch() {
           <button
             onClick={() => setFilter('syntaxes')}
             class={`px-3 py-1 rounded-full text-sm ${
-              filter() === 'syntaxes' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700'
+              filter() === 'syntaxes'
+                ? 'bg-primary text-white'
+                : 'bg-gray-100 text-gray-700'
             }`}
           >
             Syntaxes ({results().syntaxes.length})
@@ -165,7 +279,9 @@ export function SearchWithFlexSearch() {
           <button
             onClick={() => setFilter('papers')}
             class={`px-3 py-1 rounded-full text-sm ${
-              filter() === 'papers' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700'
+              filter() === 'papers'
+                ? 'bg-primary text-white'
+                : 'bg-gray-100 text-gray-700'
             }`}
           >
             Papers ({results().papers.length})
@@ -177,16 +293,22 @@ export function SearchWithFlexSearch() {
             <div>
               <h3 class="text-sm font-medium text-gray-700 mb-2">Semantics</h3>
               <div class="space-y-2">
-                <For each={results().semantics}>
+                <For each={[...new Set(results().semantics)]}>
                   {(semanticId) => {
-                    const semantic = searchData()?.semantics.find(s => s.id === semanticId);
+                    const semantic = searchData()?.semantics.find(
+                      (s) => s.id === semanticId,
+                    );
                     return semantic ? (
                       <a
                         href={url(`/semantics/${semantic.id}`)}
                         class="block bg-white rounded-lg shadow p-4 hover:shadow-md transition-shadow"
                       >
-                        <h4 class="font-medium text-primary">{semantic.name}</h4>
-                        <p class="text-sm text-gray-600 mt-1">{semantic.description}</p>
+                        <h4 class="font-medium text-primary">
+                          {semantic.name}
+                        </h4>
+                        <p class="text-sm text-gray-600 mt-1">
+                          {semantic.description}
+                        </p>
                       </a>
                     ) : null;
                   }}
@@ -199,17 +321,23 @@ export function SearchWithFlexSearch() {
             <div>
               <h3 class="text-sm font-medium text-gray-700 mb-2">Syntaxes</h3>
               <div class="space-y-2">
-                <For each={results().syntaxes}>
+                <For each={[...new Set(results().syntaxes)]}>
                   {(syntaxId) => {
-                    const syntax = searchData()?.syntaxes.find(s => s.id === syntaxId);
+                    const syntax = searchData()?.syntaxes.find(
+                      (s) => s.id === syntaxId,
+                    );
                     return syntax ? (
                       <a
                         href={url(`/syntaxes/${syntax.id}`)}
                         class="block bg-white rounded-lg shadow p-4 hover:shadow-md transition-shadow"
                       >
-                        <code class="font-mono text-primary">{syntax.typstString}</code>
+                        <code class="font-mono text-primary">
+                          {syntax.typstString}
+                        </code>
                         <Show when={syntax.description}>
-                          <p class="text-sm text-gray-600 mt-1">{syntax.description}</p>
+                          <p class="text-sm text-gray-600 mt-1">
+                            {syntax.description}
+                          </p>
                         </Show>
                       </a>
                     ) : null;
@@ -223,9 +351,11 @@ export function SearchWithFlexSearch() {
             <div>
               <h3 class="text-sm font-medium text-gray-700 mb-2">Papers</h3>
               <div class="space-y-2">
-                <For each={results().papers}>
+                <For each={[...new Set(results().papers)]}>
                   {(paperId) => {
-                    const paper = searchData()?.papers.find(p => p.id === paperId);
+                    const paper = searchData()?.papers.find(
+                      (p) => p.id === paperId,
+                    );
                     return paper ? (
                       <a
                         href={url(`/papers/${paper.id}`)}

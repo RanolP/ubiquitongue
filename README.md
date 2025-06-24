@@ -4,7 +4,7 @@ A review of notational conflicts that could be the leading cause of murder in re
 
 ## Overview
 
-We'll make a bidirectional index from semantics to syntaxes coupled with field and papers' authors, and then provide a clean statistics of its popularity, ambiguity, and more. For all of them, we'll provide an editor for easier contribution.
+Ubiquitongue is a comprehensive, searchable database of mathematical and computer science notations. It provides a bidirectional index that maps notations to their meanings, helping researchers disambiguate notational conflicts across academic papers.
 
 ## Live Website
 

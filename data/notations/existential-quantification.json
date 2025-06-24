@@ -13,9 +13,7 @@
     "existence"
   ],
   "typstString": "$exists x. P(x)$",
-  "typstCanonical": "exists x. P(x)",
   "latexString": "\\exists x. P(x)",
-  "unicodeString": "∃x. P(x)",
   "papers": [
     {
       "paperId": "hrbacek-1999-set-theory",

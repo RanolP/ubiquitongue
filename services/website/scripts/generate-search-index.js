@@ -40,12 +40,10 @@ async function generateSearchIndices() {
     syntaxes: syntaxes.map(s => ({
       id: s.id,
       typstString: s.typstString,
-      typstCanonical: s.typstCanonical,
       description: s.description || '',
       latexString: s.latexString || '',
       searchText: [
         s.typstString,
-        s.typstCanonical,
         s.description || '',
         s.latexString || ''
       ].join(' ').toLowerCase()

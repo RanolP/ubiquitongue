@@ -1,111 +1,107 @@
 ---
 id: future-roadmap
-created_at: 2025-06-24T03:55:00Z
-updated_at: 2025-06-24T03:55:00Z
-status: proposed
+created_at: 2025-06-24T04:00:00Z
+updated_at: 2025-06-24T04:00:00Z
 type: plan
-priority: medium
+status: proposed
+priority: strategic
 ---
 
-# Future Roadmap
+# Ubiquitongue Future Roadmap
 
-## Near Term (Next Month)
+## Short Term (1-3 months)
 
-### 1. Content Expansion
-- Add more notations from core CS/Math areas
-- Include more papers with proper citations
-- Cover type theory, category theory, set theory comprehensively
+### Data Expansion
+- [ ] Add more notations from key CS/Math papers
+- [ ] Include category theory notations
+- [ ] Add logic and proof theory symbols
+- [ ] Cover linear algebra notation variants
 
-### 2. Contribution Workflow
-- GitHub issue templates for new notations
-- Validation scripts for data format
-- Contributor guidelines
-- PR automation
+### Contribution System
+- [ ] GitHub-based contribution workflow
+- [ ] Notation proposal template
+- [ ] Automated validation of submissions
+- [ ] Community review process
 
-### 3. Statistics & Analytics
-- Usage frequency across papers
-- Ambiguity scores (same notation, different meanings)
-- Field-specific notation preferences
-- Visualization dashboards
+### Search Improvements
+- [ ] Fuzzy matching for typos
+- [ ] LaTeX input support
+- [ ] Voice/handwriting input (experimental)
+- [ ] Search history and favorites
 
-## Medium Term (3-6 Months)
+## Medium Term (3-6 months)
 
-### 4. Community Features
-- Comments/discussions on notations
-- Voting on preferred representations
-- User submissions with moderation
-- Notation disambiguation pages
+### Analytics & Insights
+- [ ] Most searched notations
+- [ ] Most ambiguous symbols
+- [ ] Usage trends over time
+- [ ] Conflict heatmap visualization
 
-### 5. Advanced Search
-- Search by paper/author
-- Filter by field/domain
-- Related notations suggestions
-- Search history/bookmarks
+### API Development
+- [ ] REST API for notation queries
+- [ ] GraphQL API for complex queries
+- [ ] Webhook for notation updates
+- [ ] Rate limiting and authentication
 
-### 6. API & Integrations
-- Read-only API for notation data
-- Browser extension for paper reading
-- LaTeX/Typst package for consistent notation
-- Editor plugins
+### Educational Features
+- [ ] Interactive notation tutorials
+- [ ] "Notation of the day"
+- [ ] Quiz mode for learning
+- [ ] Notation cheat sheets by field
 
-## Long Term (6-12 Months)
+## Long Term (6-12 months)
 
-### 7. Domain Expansion
-- Physics notations
-- Chemistry notations
-- Engineering notations
-- Cross-field notation mapping
+### Advanced Features
+- [ ] Browser extension for paper reading
+- [ ] VS Code extension for notation lookup
+- [ ] LaTeX package for consistent notation
+- [ ] Citation network analysis
 
-### 8. Machine Learning Features
-- Notation extraction from PDFs
-- Automatic disambiguation suggestions
-- Usage pattern analysis
-- Notation recommendation engine
+### Community Building
+- [ ] User accounts and profiles
+- [ ] Notation discussion forums
+- [ ] Expert verification badges
+- [ ] Notation standardization proposals
 
-### 9. Educational Tools
-- Interactive notation tutorials
-- Field-specific notation guides
-- Historical notation evolution
-- Notation quiz/practice tools
+### Integration Ecosystem
+- [ ] Overleaf integration
+- [ ] arXiv integration
+- [ ] Zotero/Mendeley plugins
+- [ ] Jupyter notebook extension
+
+## Vision Features (1+ years)
+
+### AI-Powered Enhancements
+- [ ] Auto-extract notations from PDFs
+- [ ] Suggest notation based on context
+- [ ] Detect notation conflicts in papers
+- [ ] Generate notation documentation
+
+### Standards Development
+- [ ] Work with academic societies
+- [ ] Propose notation standards
+- [ ] Create field-specific guidelines
+- [ ] Notation best practices guide
 
 ## Infrastructure Improvements
 
 ### Performance
-- CDN for global distribution
-- Progressive enhancement
-- Offline support with service workers
-- WebAssembly optimizations
+- [ ] CDN for global distribution
+- [ ] Offline-first PWA
+- [ ] WebAssembly for typst rendering
+- [ ] Edge computing for search
 
-### Developer Experience
-- GraphQL API for writes
-- CLI tools for bulk operations
-- Import/export utilities
-- Data validation suite
-
-### Quality Assurance
-- Automated testing for all notations
-- Visual regression testing
-- Cross-reference validation
-- Dead link detection
-
-## Research Collaborations
-
-### Academic Partnerships
-- Partner with universities
-- Integrate with research databases
-- Conference paper analysis
-- Journal notation standards
-
-### Industry Integration
-- Technical documentation standards
-- Company style guides
-- Open source project conventions
-- Tool integrations
+### Sustainability
+- [ ] Funding model (grants/donations)
+- [ ] Governance structure
+- [ ] Long-term data preservation
+- [ ] Mirror sites for redundancy
 
 ## Success Metrics
 
-1. **Content**: 1000+ notations, 500+ papers
-2. **Traffic**: 10K+ monthly users
-3. **Community**: 100+ contributors
-4. **Quality**: <1% error rate in notations
-5. **Performance**: <50ms search globally
+- Number of notations indexed
+- Daily active users
+- Contributions per month
+- Citations in academic papers
+- API usage statistics
+- Community engagement

@@ -22,7 +22,6 @@ export interface Notation {
   
   // Syntax information
   typstString: string;
-  typstCanonical: string;
   latexString?: string;
   unicodeString?: string;
   

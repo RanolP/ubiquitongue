@@ -1,6 +1,6 @@
-import { createSignal, createMemo, For, Show } from 'solid-js';
-import type { Semantic, Syntax, Paper } from '../../lib/data-client';
-import { url } from '../../lib/url';
+import { createSignal, createMemo, For, Show, type JSX } from 'solid-js';
+import type { Semantic, Syntax, Paper } from '../lib/data-client';
+import { url } from '../lib/url';
 
 interface SearchProps {
   semantics: Semantic[];
@@ -8,9 +8,11 @@ interface SearchProps {
   papers: Paper[];
 }
 
-export function Search(props: SearchProps) {
+export function Search(props: SearchProps): JSX.Element {
   const [query, setQuery] = createSignal('');
-  const [filter, setFilter] = createSignal<'all' | 'semantics' | 'syntaxes' | 'papers'>('all');
+  const [filter, setFilter] = createSignal<
+    'all' | 'semantics' | 'syntaxes' | 'papers'
+  >('all');
 
   const results = createMemo(() => {
     const q = query().toLowerCase().trim();
@@ -18,34 +20,42 @@ export function Search(props: SearchProps) {
 
     const filterType = filter();
     const results = {
-      semantics: filterType === 'all' || filterType === 'semantics' 
-        ? props.semantics.filter(s => 
-            s.name.toLowerCase().includes(q) ||
-            s.description.toLowerCase().includes(q) ||
-            s.tags.some(t => t.toLowerCase().includes(q)) ||
-            s.aliases.some(a => a.toLowerCase().includes(q))
-          )
-        : [],
-      syntaxes: filterType === 'all' || filterType === 'syntaxes'
-        ? props.syntaxes.filter(s =>
-            s.typstString.toLowerCase().includes(q) ||
-            s.typstCanonical.toLowerCase().includes(q) ||
-            (s.description?.toLowerCase().includes(q) ?? false)
-          )
-        : [],
-      papers: filterType === 'all' || filterType === 'papers'
-        ? props.papers.filter(p =>
-            p.title.toLowerCase().includes(q) ||
-            p.authors.some(a => a.toLowerCase().includes(q))
-          )
-        : [],
+      semantics:
+        filterType === 'all' || filterType === 'semantics'
+          ? props.semantics.filter(
+              (s) =>
+                s.name.toLowerCase().includes(q) ||
+                s.description.toLowerCase().includes(q) ||
+                s.tags.some((t) => t.toLowerCase().includes(q)) ||
+                s.aliases.some((a) => a.toLowerCase().includes(q)),
+            )
+          : [],
+      syntaxes:
+        filterType === 'all' || filterType === 'syntaxes'
+          ? props.syntaxes.filter(
+              (s) =>
+                s.typstString.toLowerCase().includes(q) ||
+                (s.description?.toLowerCase().includes(q) ?? false),
+            )
+          : [],
+      papers:
+        filterType === 'all' || filterType === 'papers'
+          ? props.papers.filter(
+              (p) =>
+                p.title.toLowerCase().includes(q) ||
+                p.authors.some((a) => a.toLowerCase().includes(q)),
+            )
+          : [],
     };
 
     return results;
   });
 
-  const totalResults = createMemo(() => 
-    results().semantics.length + results().syntaxes.length + results().papers.length
+  const totalResults = createMemo(
+    () =>
+      results().semantics.length +
+      results().syntaxes.length +
+      results().papers.length,
   );
 
   return (
@@ -78,7 +88,9 @@ export function Search(props: SearchProps) {
           <button
             onClick={() => setFilter('all')}
             class={`px-3 py-1 rounded-full text-sm ${
-              filter() === 'all' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700'
+              filter() === 'all'
+                ? 'bg-primary text-white'
+                : 'bg-gray-100 text-gray-700'
             }`}
           >
             All ({totalResults()})
@@ -86,7 +98,9 @@ export function Search(props: SearchProps) {
           <button
             onClick={() => setFilter('semantics')}
             class={`px-3 py-1 rounded-full text-sm ${
-              filter() === 'semantics' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700'
+              filter() === 'semantics'
+                ? 'bg-primary text-white'
+                : 'bg-gray-100 text-gray-700'
             }`}
           >
             Semantics ({results().semantics.length})
@@ -94,7 +108,9 @@ export function Search(props: SearchProps) {
           <button
             onClick={() => setFilter('syntaxes')}
             class={`px-3 py-1 rounded-full text-sm ${
-              filter() === 'syntaxes' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700'
+              filter() === 'syntaxes'
+                ? 'bg-primary text-white'
+                : 'bg-gray-100 text-gray-700'
             }`}
           >
             Syntaxes ({results().syntaxes.length})
@@ -102,7 +118,9 @@ export function Search(props: SearchProps) {
           <button
             onClick={() => setFilter('papers')}
             class={`px-3 py-1 rounded-full text-sm ${
-              filter() === 'papers' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700'
+              filter() === 'papers'
+                ? 'bg-primary text-white'
+                : 'bg-gray-100 text-gray-700'
             }`}
           >
             Papers ({results().papers.length})
@@ -121,7 +139,9 @@ export function Search(props: SearchProps) {
                       class="block bg-white rounded-lg shadow p-4 hover:shadow-md transition-shadow"
                     >
                       <h4 class="font-medium text-primary">{semantic.name}</h4>
-                      <p class="text-sm text-gray-600 mt-1">{semantic.description}</p>
+                      <p class="text-sm text-gray-600 mt-1">
+                        {semantic.description}
+                      </p>
                     </a>
                   )}
                 </For>
@@ -139,9 +159,13 @@ export function Search(props: SearchProps) {
                       href={url(`/syntaxes/${syntax.id}`)}
                       class="block bg-white rounded-lg shadow p-4 hover:shadow-md transition-shadow"
                     >
-                      <code class="font-mono text-primary">{syntax.typstString}</code>
+                      <code class="font-mono text-primary">
+                        {syntax.typstString}
+                      </code>
                       <Show when={syntax.description}>
-                        <p class="text-sm text-gray-600 mt-1">{syntax.description}</p>
+                        <p class="text-sm text-gray-600 mt-1">
+                          {syntax.description}
+                        </p>
                       </Show>
                     </a>
                   )}

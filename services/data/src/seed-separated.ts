@@ -30,7 +30,6 @@ interface Notation {
   
   // Syntax information
   typstString: string;
-  typstCanonical: string;
   latexString?: string;
   unicodeString?: string;
   
@@ -129,7 +128,6 @@ async function seedSeparated() {
       tags: ['type theory', 'PLT'],
       aliases: ['typing relation', 'type assignment'],
       typstString: '$Gamma tack.r e : tau$',
-      typstCanonical: 'Gamma tack.r e : tau',
       latexString: '\\Gamma \\vdash e : \\tau',
       papers: [{
         paperId: 'pierce-2002-types',
@@ -147,7 +145,6 @@ async function seedSeparated() {
       tags: ['lambda calculus', 'PLT', 'functional programming'],
       aliases: ['function literal', 'anonymous function', 'lambda expression'],
       typstString: '$lambda x. e$',
-      typstCanonical: 'lambda x. e',
       latexString: '\\lambda x. e',
       papers: [{
         paperId: 'pierce-2002-types',
@@ -170,7 +167,6 @@ async function seedSeparated() {
       tags: ['set theory', 'operations', 'binary operations'],
       aliases: ['union', 'join', 'disjunction of sets'],
       typstString: '$A union B$',
-      typstCanonical: 'A union B',
       latexString: 'A \\cup B',
       unicodeString: 'A ∪ B',
       papers: [{
@@ -189,7 +185,6 @@ async function seedSeparated() {
       tags: ['set theory', 'operations', 'binary operations'],
       aliases: ['intersection', 'meet', 'conjunction of sets'],
       typstString: '$A sect B$',
-      typstCanonical: 'A sect B',
       latexString: 'A \\cap B',
       unicodeString: 'A ∩ B',
       papers: [{
@@ -208,7 +203,6 @@ async function seedSeparated() {
       tags: ['set theory', 'relations', 'membership'],
       aliases: ['belongs to', 'is in', 'membership', 'element of'],
       typstString: '$x in A$',
-      typstCanonical: 'x in A',
       latexString: 'x \\in A',
       unicodeString: 'x ∈ A',
       papers: [{
@@ -227,7 +221,6 @@ async function seedSeparated() {
       tags: ['arithmetic', 'analysis', 'series'],
       aliases: ['sum', 'sigma notation', 'series sum'],
       typstString: '$sum_(i=1)^n a_i$',
-      typstCanonical: 'sum_(i=1)^n a_i',
       latexString: '\\sum_{i=1}^{n} a_i',
       unicodeString: '∑ᵢ₌₁ⁿ aᵢ',
       papers: [{
@@ -246,7 +239,6 @@ async function seedSeparated() {
       tags: ['logic', 'quantifiers', 'first-order logic'],
       aliases: ['for all', 'universal quantifier', 'generalization'],
       typstString: '$forall x. P(x)$',
-      typstCanonical: 'forall x. P(x)',
       latexString: '\\forall x. P(x)',
       unicodeString: '∀x. P(x)',
       papers: [{
@@ -265,7 +257,6 @@ async function seedSeparated() {
       tags: ['logic', 'quantifiers', 'first-order logic'],
       aliases: ['there exists', 'existential quantifier', 'existence'],
       typstString: '$exists x. P(x)$',
-      typstCanonical: 'exists x. P(x)',
       latexString: '\\exists x. P(x)',
       unicodeString: '∃x. P(x)',
       papers: [{

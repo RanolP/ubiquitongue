@@ -38,7 +38,6 @@ const Syntax = builder.objectType('Syntax', {
     id: t.exposeString('id'),
     typstString: t.exposeString('typstString'),
     latexString: t.exposeString('latexString', { nullable: true }),
-    typstCanonical: t.exposeString('typstCanonical'),
     description: t.exposeString('description', { nullable: true }),
     createdAt: t.exposeInt('createdAt'),
     updatedAt: t.exposeInt('updatedAt'),
@@ -164,7 +163,6 @@ builder.mutationType({
       args: {
         typstString: t.arg.string({ required: true }),
         latexString: t.arg.string(),
-        typstCanonical: t.arg.string({ required: true }),
         description: t.arg.string(),
       },
       resolve: (_, args, ctx) => ctx.db.syntaxes.create(args),

@@ -1,0 +1,13 @@
+---
+import { compile } from './lib';
+import { TypstDynamic } from './dynamic';
+
+interface Props {
+  src: string;
+}
+
+const { src } = Astro.props;
+const buf = compile(src);
+---
+
+<TypstDynamic client:load content={buf} />

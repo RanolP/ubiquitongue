@@ -23,6 +23,7 @@ priority: critical
 ### Technical Decisions
 - **Keep it simple** - Don't overcomplicate. The user explicitly said "make it simple as stupid" when we were overengineering with DuckDB.
 - **Use the decided stack** - Don't try to add new technologies without explicit approval.
+- **The file name should be consistently kebab-case** - Maintain naming consistency across the project.
 
 ### Domain
 - **ubqt.ranolp.dev** - Custom domain, no base path needed.

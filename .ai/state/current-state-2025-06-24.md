@@ -1,7 +1,7 @@
 ---
 id: current-state-2025-06-24
 created_at: 2025-06-24T03:35:00Z
-updated_at: 2025-06-24T03:35:00Z
+updated_at: 2025-06-24T04:30:00Z
 status: active
 type: state
 project_phase: 5
@@ -101,6 +101,11 @@ ubiquitongue/
 3. **Custom Domain** (June 24)
    - Configured ubqt.ranolp.dev
    - Removed base path complexity
+
+4. **Removed typstCanonical Field** (June 24, 4:30 UTC)
+   - Eliminated redundant typstCanonical field from all notation data
+   - Simplified data model - typstString is sufficient
+   - Updated all TypeScript interfaces and components
 
 ## Next Potential Features
 

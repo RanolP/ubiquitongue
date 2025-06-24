@@ -1,8 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { data, getPaperById, getNotationsByPaperId } from '../../lib/data-separated';
+import {
+  data,
+  getPaperById,
+  getNotationsByPaperId,
+} from '../../lib/data-separated';
 import { url } from '../../lib/url';
-import { SyntaxDisplay } from '../../components/solid/SyntaxDisplay';
+import SyntaxDisplay from '../../components/syntax-display.astro';
 
 export async function getStaticPaths() {
   return data.papers.map((paper) => ({
@@ -21,86 +25,97 @@ if (!paper) {
 
 <Layout title={paper.title}>
   <div>
-    <a href={url('/papers')} class="text-primary hover:text-primary/80">← Back to Papers</a>
-    
+    <a href={url('/papers')} class="text-primary hover:text-primary/80"
+      >← Back to Papers</a
+    >
+
     <h1 class="mt-4 text-3xl font-bold text-gray-900">{paper.title}</h1>
-    
+
     <div class="mt-6 bg-white shadow rounded-lg p-6">
       <div>
         <h3 class="text-sm font-medium text-gray-700">Authors</h3>
         <p class="mt-1 text-gray-600">{paper.authors.join(', ')}</p>
       </div>
-      
+
       <div class="mt-4">
         <h3 class="text-sm font-medium text-gray-700">Year</h3>
         <p class="mt-1 text-gray-600">{paper.year}</p>
       </div>
-      
-      {paper.abstract && (
-        <div class="mt-4">
-          <h3 class="text-sm font-medium text-gray-700">Abstract</h3>
-          <p class="mt-1 text-gray-600">{paper.abstract}</p>
-        </div>
-      )}
-      
+
+      {
+        paper.abstract && (
+          <div class="mt-4">
+            <h3 class="text-sm font-medium text-gray-700">Abstract</h3>
+            <p class="mt-1 text-gray-600">{paper.abstract}</p>
+          </div>
+        )
+      }
+
       <div class="mt-4">
         <h3 class="text-sm font-medium text-gray-700">BibTeX</h3>
-        <pre class="mt-1 bg-gray-50 p-3 rounded text-sm overflow-x-auto">
+        <pre
+          class="mt-1 bg-gray-50 p-3 rounded text-sm overflow-x-auto">
           <code>{paper.bibtex}</code>
         </pre>
       </div>
     </div>
 
-    {notations.length > 0 && (
-      <div class="mt-8">
-        <h2 class="text-xl font-semibold text-gray-900 mb-4">Notations Used</h2>
-        <div class="space-y-4">
-          {notations.map((notation) => {
-            const usage = notation.papers.find(p => p.paperId === paper.id);
-            
-            return (
-              <div class="bg-white shadow rounded-lg p-4">
-                <div class="flex items-start justify-between">
-                  <div class="flex-1">
-                    <h3 class="font-medium">
-                      <a href={url(`/notations/${notation.id}`)} class="text-primary hover:text-primary/80">
-                        {notation.name}
-                      </a>
-                    </h3>
-                    <p class="text-sm text-gray-600 mt-1">{notation.description}</p>
-                    
-                    <div class="mt-3">
-                      <SyntaxDisplay 
-                        syntax={{
-                          id: notation.id,
-                          typstString: notation.typstString,
-                          typstCanonical: notation.typstCanonical,
-                          description: '',
-                          latexString: notation.latexString
-                        }} 
-                        showDescription={false}
-                        client:visible 
-                      />
-                    </div>
-                    
-                    {usage && (
-                      <div class="mt-3 text-sm text-gray-500">
-                        {usage.context && <p>{usage.context}</p>}
-                        {usage.pageNumber && <p>Page {usage.pageNumber}</p>}
+    {
+      notations.length > 0 && (
+        <div class="mt-8">
+          <h2 class="text-xl font-semibold text-gray-900 mb-4">
+            Notations Used
+          </h2>
+          <div class="space-y-4">
+            {notations.map((notation) => {
+              const usage = notation.papers.find((p) => p.paperId === paper.id);
+
+              return (
+                <div class="bg-white shadow rounded-lg p-4">
+                  <div class="flex items-start justify-between">
+                    <div class="flex-1">
+                      <h3 class="font-medium">
+                        <a
+                          href={url(`/notations/${notation.id}`)}
+                          class="text-primary hover:text-primary/80"
+                        >
+                          {notation.name}
+                        </a>
+                      </h3>
+                      <p class="text-sm text-gray-600 mt-1">
+                        {notation.description}
+                      </p>
+
+                      <div class="mt-3">
+                        <SyntaxDisplay
+                          syntax={{
+                            typstString: notation.typstString,
+                            description: '',
+                            latexString: notation.latexString,
+                          }}
+                          showDescription={false}
+                        />
                       </div>
+
+                      {usage && (
+                        <div class="mt-3 text-sm text-gray-500">
+                          {usage.context && <p>{usage.context}</p>}
+                          {usage.pageNumber && <p>Page {usage.pageNumber}</p>}
+                        </div>
+                      )}
+                    </div>
+                    {usage?.isPrimaryDefinition && (
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        Primary
+                      </span>
                     )}
                   </div>
-                  {usage?.isPrimaryDefinition && (
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                      Primary
-                    </span>
-                  )}
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
-    )}
+      )
+    }
   </div>
 </Layout>

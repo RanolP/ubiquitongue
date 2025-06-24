@@ -1,0 +1,37 @@
+---
+import type { Semantic } from '../lib/data-client';
+
+interface Props {
+  semantic: Semantic;
+  href?: string;
+}
+
+const { semantic, href } = Astro.props;
+const Tag = href ? 'a' : 'div';
+const baseClass = "bg-white rounded-lg shadow p-6";
+const linkClass = href ? "block hover:shadow-md transition-shadow" : "";
+---
+
+<Tag href={href} class={`${baseClass} ${linkClass}`.trim()}>
+  <h3 class="text-xl font-semibold text-gray-900">{semantic.name}</h3>
+  <p class="mt-2 text-gray-600">{semantic.description}</p>
+
+  {semantic.tags.length > 0 && (
+    <div class="mt-3 flex flex-wrap gap-2">
+      {semantic.tags.map((tag) => (
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">
+          {tag}
+        </span>
+      ))}
+    </div>
+  )}
+
+  {semantic.aliases.length > 0 && (
+    <div class="mt-3">
+      <span class="text-sm text-gray-500">Also known as: </span>
+      <span class="text-sm text-gray-700">
+        {semantic.aliases.join(', ')}
+      </span>
+    </div>
+  )}
+</Tag>

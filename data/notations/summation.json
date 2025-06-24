@@ -13,9 +13,7 @@
     "series sum"
   ],
   "typstString": "$sum_(i=1)^n a_i$",
-  "typstCanonical": "sum_(i=1)^n a_i",
   "latexString": "\\sum_{i=1}^{n} a_i",
-  "unicodeString": "∑ᵢ₌₁ⁿ aᵢ",
   "papers": [
     {
       "paperId": "hrbacek-1999-set-theory",

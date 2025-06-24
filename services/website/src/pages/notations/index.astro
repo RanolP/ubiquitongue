@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { data } from '../../lib/data-separated';
 import { url } from '../../lib/url';
-import { SyntaxDisplay } from '../../components/solid/SyntaxDisplay';
+import SyntaxDisplay from '../../components/syntax-display.astro';
 
 const notations = data.notations;
 ---
@@ -10,57 +10,54 @@ const notations = data.notations;
 <Layout title="Notations">
   <div>
     <h1 class="text-3xl font-bold text-gray-900">Mathematical Notations</h1>
-    <p class="mt-2 text-gray-600">A comprehensive index of mathematical and computer science notations</p>
-    
+    <p class="mt-2 text-gray-600">
+      A comprehensive index of mathematical and computer science notations
+    </p>
+
     <div class="mt-8 space-y-6">
-      {notations.map((notation) => (
-        <div class="bg-white shadow rounded-lg p-6">
-          <div class="flex items-start justify-between">
-            <div class="flex-1">
-              <h2 class="text-xl font-semibold">
-                <a href={url(`/notations/${notation.id}`)} class="text-primary hover:text-primary/80">
-                  {notation.name}
-                </a>
-              </h2>
-              <p class="mt-1 text-gray-600">{notation.description}</p>
-              
-              <div class="mt-4 flex items-center gap-6">
-                <div>
-                  <SyntaxDisplay 
+      {
+        notations.map((notation) => (
+          <div class="bg-white shadow rounded-lg p-6">
+            <div class="flex items-start justify-between">
+              <div class="flex-1">
+                <h2 class="text-xl font-semibold">
+                  <a
+                    href={url(`/notations/${notation.id}`)}
+                    class="text-primary hover:text-primary/80"
+                  >
+                    {notation.name}
+                  </a>
+                </h2>
+                <p class="mt-1 text-gray-600">{notation.description}</p>
+
+                <div class="mt-4">
+                  <SyntaxDisplay
                     syntax={{
-                      id: notation.id,
                       typstString: notation.typstString,
-                      typstCanonical: notation.typstCanonical,
                       description: '',
-                      latexString: notation.latexString
-                    }} 
+                      latexString: notation.latexString,
+                    }}
                     showDescription={false}
-                    client:visible 
                   />
                 </div>
-                
-                {notation.unicodeString && (
-                  <div class="text-2xl font-mono text-gray-700">
-                    {notation.unicodeString}
-                  </div>
-                )}
-              </div>
-              
-              <div class="mt-4 flex items-center gap-4">
-                {notation.tags.map((tag) => (
-                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                    {tag}
+
+                <div class="mt-4 flex items-center gap-4">
+                  {notation.tags.map((tag) => (
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                      {tag}
+                    </span>
+                  ))}
+
+                  <span class="text-sm text-gray-500">
+                    Used in {notation.papers.length} paper
+                    {notation.papers.length !== 1 ? 's' : ''}
                   </span>
-                ))}
-                
-                <span class="text-sm text-gray-500">
-                  Used in {notation.papers.length} paper{notation.papers.length !== 1 ? 's' : ''}
-                </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </Layout>

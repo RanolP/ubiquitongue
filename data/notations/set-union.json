@@ -13,9 +13,7 @@
     "disjunction of sets"
   ],
   "typstString": "$A union B$",
-  "typstCanonical": "A union B",
   "latexString": "A \\cup B",
-  "unicodeString": "A ∪ B",
   "papers": [
     {
       "paperId": "hrbacek-1999-set-theory",
