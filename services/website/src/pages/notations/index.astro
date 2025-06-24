@@ -2,60 +2,102 @@
 import Layout from '../../layouts/Layout.astro';
 import { data } from '../../lib/data-separated';
 import { url } from '../../lib/url';
-import SyntaxDisplay from '../../components/syntax-display.astro';
+import TypstRender from '../../components/typst-render/index.astro';
 
 const notations = data.notations;
 ---
 
 <Layout title="Notations">
   <div>
-    <h1 class="text-3xl font-bold text-gray-900">Mathematical Notations</h1>
-    <p class="mt-2 text-gray-600">
-      A comprehensive index of mathematical and computer science notations
-    </p>
+    <div class="mb-12 text-center">
+      <h1 class="text-5xl font-bold text-gray-900 mb-4">Mathematical Notations</h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        A comprehensive index of mathematical and computer science notations, connecting visual representations with their semantic meanings
+      </p>
+    </div>
 
-    <div class="mt-8 space-y-6">
+    <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
       {
         notations.map((notation) => (
-          <div class="bg-white shadow rounded-lg p-6">
-            <div class="flex items-start justify-between">
-              <div class="flex-1">
-                <h2 class="text-xl font-semibold">
-                  <a
-                    href={url(`/notations/${notation.id}`)}
-                    class="text-primary hover:text-primary/80"
-                  >
-                    {notation.name}
-                  </a>
-                </h2>
-                <p class="mt-1 text-gray-600">{notation.description}</p>
-
-                <div class="mt-4">
-                  <SyntaxDisplay
-                    syntax={{
-                      typstString: notation.typstString,
-                      description: '',
-                      latexString: notation.latexString,
-                    }}
-                    showDescription={false}
-                  />
-                </div>
-
-                <div class="mt-4 flex items-center gap-4">
-                  {notation.tags.map((tag) => (
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                      {tag}
-                    </span>
-                  ))}
-
-                  <span class="text-sm text-gray-500">
-                    Used in {notation.papers.length} paper
-                    {notation.papers.length !== 1 ? 's' : ''}
-                  </span>
+          <a
+            href={url(`/notations/${notation.id}`)}
+            class="card-shadow group relative bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col"
+          >
+            {/* Notation Visual */}
+            <div class="p-8 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative">
+              <div class="absolute inset-0 bg-white/50"></div>
+              <div class="relative flex justify-center items-center min-h-[100px]">
+                <div class="text-4xl math-content">
+                  <TypstRender src={notation.typstString} />
                 </div>
               </div>
             </div>
-          </div>
+            
+            {/* Content */}
+            <div class="p-6 flex-1 flex flex-col">
+              <h2 class="font-bold text-xl text-gray-900 group-hover:text-primary transition-colors mb-3">
+                {notation.name}
+              </h2>
+              
+              <p class="text-gray-600 line-clamp-3 flex-1">
+                {notation.description}
+              </p>
+              
+              {/* Syntax snippets */}
+              <div class="mt-4 bg-gray-50 rounded-lg p-3 space-y-2">
+                <div class="flex items-start gap-2">
+                  <span class="text-xs font-semibold text-gray-600 uppercase tracking-wide min-w-[45px]">Typst</span>
+                  <code class="text-xs bg-white px-2 py-1 rounded border border-gray-200 font-mono text-gray-700 break-all">
+                    {notation.typstString}
+                  </code>
+                </div>
+                {notation.latexString && (
+                  <div class="flex items-start gap-2">
+                    <span class="text-xs font-semibold text-gray-600 uppercase tracking-wide min-w-[45px]">LaTeX</span>
+                    <code class="text-xs bg-white px-2 py-1 rounded border border-gray-200 font-mono text-gray-700 break-all">
+                      {notation.latexString}
+                    </code>
+                  </div>
+                )}
+              </div>
+              
+              {/* Tags */}
+              {notation.tags.length > 0 && (
+                <div class="mt-4 flex flex-wrap gap-1.5">
+                  {notation.tags.slice(0, 3).map((tag) => (
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-purple-700 border border-purple-200/50">
+                      {tag}
+                    </span>
+                  ))}
+                  {notation.tags.length > 3 && (
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+                      +{notation.tags.length - 3}
+                    </span>
+                  )}
+                </div>
+              )}
+              
+              {/* Footer */}
+              <div class="mt-auto pt-4 border-t border-gray-200 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="text-sm font-medium text-gray-700">
+                    {notation.papers.length} paper{notation.papers.length !== 1 ? 's' : ''}
+                  </span>
+                  {notation.aliases.length > 0 && (
+                    <span class="text-sm text-gray-500">
+                      • {notation.aliases.length} alias{notation.aliases.length !== 1 ? 'es' : ''}
+                    </span>
+                  )}
+                </div>
+                <span class="text-primary text-sm font-semibold group-hover:gap-2 transition-all inline-flex items-center gap-1">
+                  Details
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </a>
         ))
       }
     </div>

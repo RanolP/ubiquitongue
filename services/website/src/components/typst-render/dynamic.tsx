@@ -1,5 +1,5 @@
 import { createTypstRenderer } from '@myriaddreamin/typst.ts';
-import { createEffect, createResource } from 'solid-js';
+import { createEffect } from 'solid-js';
 
 const rendererPromise = (async () => {
   const typstRenderer = createTypstRenderer();
